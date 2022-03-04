@@ -1,2 +1,2 @@
 # StudioGhibli-client
- Client side for Stuido Ghibli application
+ Client side for Studio Ghibli application
