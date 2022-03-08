@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -7,13 +9,18 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [
-        { _id: 1, Title: 'Howls Moving Castle', Description:'desc1..', ImagePath: ''},
-        { _id: 2, Title: 'Spirited Away', Description: 'desc2..', ImagePath: '...'},
-        { _id: 3, Title: 'Ponyo', Description:'desc3..', ImagePath: '...'}
-      ],
+      movies: [],
       selectedMovie: null
     };
+  }
+
+  componentDidMount(){
+    axios.get('https://studioghiblidb.herokuapp.com/movies')
+    .then(response => {
+      this.setState({
+        movies: response.data
+      });
+    })
   }
   setSelectedMovie(newSelectedMovie) {
     this.setState({
@@ -25,7 +32,7 @@ export class MainView extends React.Component {
     const { movies, selectedMovie } = this.state;
 
 
-    if (movies.length === 0) return <div className="main-view">The list is empty</div>;
+    if (movies.length === 0) return <div className="main-view" />;
     
     return (
       <div className="main-view">
