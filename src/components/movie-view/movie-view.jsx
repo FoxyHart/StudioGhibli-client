@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import "../movie-view/movie-view.scss"
+
+import { Card, Col, Container, Row, Button, Navbar } from "react-bootstrap";
+
 
 export class MovieView extends React.Component {
 
@@ -7,21 +11,22 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-      <div className="movie-poster">
-        <img src={movie.ImagePath} />
-      </div>
-      <div className="movie-title">
-        <span className="label">Title: </span>
-        <span className="value">{movie.Title}</span>
-      </div>
-      <div className="movie-description">
-        <span className="label">Description: </span>
-        <span className="value">{movie.Description}</span>
-      </div>
-      <button onClick={() => { onBackClick(null); }}>Back</button>
-
-     </div>
+      <Container>
+        <Row>
+          <Col>
+            <Card className="movie-view">
+              <Card.Body>
+              <Card.Img className="movie-poster" src={movie.ImagePath} />
+              <Card.Title className="movie-title">{movie.Title}</Card.Title>
+              <Card.Text className="movie-description">{movie.Description}</Card.Text> 
+              <Card.Text className="movie-director"> Director: {movie.Director.Name}</Card.Text>
+              <Card.Text className="movie-genre"> Genre: {movie.Genre.Name}</Card.Text>
+              </Card.Body>
+            </Card> 
+             <Button onClick={() => { onBackClick(null); }}>Return to Movies</Button>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
@@ -34,7 +39,14 @@ MovieView.proptypes = {
     Genre: PropTypes.shape({
       Name: PropTypes.string,
       Description: PropTypes.string,
-    })
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.string.isRequired,
+      Death: PropTypes.string
+    }),
+    ImagePath: PropTypes.string.isRequired
   }).isRequired,
   onbackClick: PropTypes.func.isRequired
 };

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Form, Container, Button, Navbar } from 'react-bootstrap';
+
+
 
 import './login-view.scss';
 
@@ -15,19 +18,27 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
   return (
- 
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-      <button className="new-user">Register here</button>
-    </form>
+    <Container>
+      <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
+      <Container>
+        <Navbar.Brand>  Studio Ghibli </Navbar.Brand>
+      </Container>
+      </Navbar>
+    <Form>
+      <Form.Group controlId="formUsername">
+        <Form.Label>Username:</Form.Label>
+        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+      </Form.Group>
+      <Button variant="success" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Form>
+    </Container>
   );
 }
 
@@ -37,4 +48,4 @@ LoginView.propTypes = {
     password: PropTypes.string.isRequired
   }),
   onLoggedIn: PropTypes.func.isRequired,
-};
+};   
