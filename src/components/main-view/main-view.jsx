@@ -11,7 +11,7 @@ import { RegistrationView } from '../registration-view/registration-view'
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-
+import './main-view.scss'
 export class MainView extends React.Component {
 
   constructor() {
@@ -23,23 +23,20 @@ export class MainView extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('https://studioghiblidb.herokuapp.com/movies')
-    .then(response => {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
       this.setState({
-        movies: response.data
+        user: localStorage.getItem('user')
       });
-    })
+      this.getMovies(accessToken);
+    }
   }
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie
     });
   }
-onRegistration(registration) {
-  this.setState({
-    registration,
-  })
-}
+
 
 onLoggedIn(authData) {
   console.log(authData);
@@ -50,6 +47,12 @@ onLoggedIn(authData) {
   localStorage.setItem('token', authData.token);
   localStorage.setItem('user', authData.user.Username);
   this.getMovies(authData.token);
+}
+
+onRegistration(registration) {
+  this.setState({
+    registration,
+  })
 }
 
 getMovies(token) {
@@ -66,10 +69,11 @@ getMovies(token) {
     console.log(error);
   });
 }
+
   render() {
     const { movies, selectedMovie, user, registration } = this.state;
-
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    
+    if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     if (!registration) return <RegistrationView onRegistration={registration => this.onRegistration(registration)} />
 
