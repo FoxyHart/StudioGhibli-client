@@ -18,58 +18,37 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     };
   }
 
   componentDidMount(){
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
+    axios.get('https://studioghiblidb.herokuapp.com/movies')
+    .then(response => {
       this.setState({
-        user: localStorage.getItem('user')
+        movies: response.data
       });
-      this.getMovies(accessToken);
-    }
+    })
   }
-  setSelectedMovie(newSelectedMovie) {
+
+  onLoggedIn(user) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      user
     });
   }
 
-
-onLoggedIn(authData) {
-  console.log(authData);
-  this.setState({
-    user: authData.user.Username
-  });
-
-  localStorage.setItem('token', authData.token);
-  localStorage.setItem('user', authData.user.Username);
-  this.getMovies(authData.token);
-}
-
-onRegistration(registration) {
+/* onRegistration(registration) {
   this.setState({
     registration,
   })
 }
-
-getMovies(token) {
-  axios.get('https://studioghiblidb.herokuapp.com/movies', {
-    headers: { Authorization: `Bearer ${token}`}
-  })
-  .then(response => {
-    // Assign the result to the state
-    this.setState({
-      movies: response.data
-    });
-  })
-  .catch(function (error) {
-    console.log(error);
+*/
+setSelectedMovie(newSelectedMovie) {
+  this.setState({
+    selectedMovie: newSelectedMovie
   });
 }
-
   render() {
     const { movies, selectedMovie, user, registration } = this.state;
     

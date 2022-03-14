@@ -13,21 +13,27 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(username, password);
+    console.log(username, password);
     /* Send a request to the server for authentication */
+    /* then call props.onLoggedIn(username) */
+    props.onLoggedIn(username);
+  };
+  /*const handleSubmit = (e) => {
+    e.preventDefault(); 
+    /* Send a request to the server for authentication 
     axios.post('https://studioghiblidb.herokuapp.com/login', {
       Username: username,
-      Password: password
+      Password: password,
     })
     .then(response => {
       const data = response.data;
       props.onLoggedIn(data);
     })
-    .catch(e => {
-      console.log('no such user')
+    .catch((e) => {
+      console.log('User not found')
     });
   };
-  
+  */
   return (
     <Container>
       <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
@@ -38,17 +44,19 @@ export function LoginView(props) {
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        <Form.Control type="text" placeholder="Please enter Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+        <Form.Control type="password" placeholder="Please enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </Form.Group>
+      </Form>
+      <Container>
       <Button variant="success" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-    </Form>
+      </Container>
     </Container>
   );
 }
