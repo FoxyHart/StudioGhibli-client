@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Navbar, Container, Button, Row, Col} from 'react-bootstrap'
+import { Form, Navbar, Container, Button, Row, Col} from 'react-bootstrap';
+import axios from 'axios';
+
 import './registration-view.scss'
 
 export function RegistrationView(props) {
@@ -12,9 +14,22 @@ export function RegistrationView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onRegistration(username);
+    axios
+    .post(`https://studioghiblidb.herokuapp.com/users`, {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    })
+    .then((response) => {
+      const data = response.data;
+      console.log(data);
+      alert('Registration Successful!');
+      window.open('/', '_self');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 };
 
 return(
@@ -29,15 +44,15 @@ return(
    <Form>
      <Form.Group>
       <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} required />
+        <Form.Control type="text" value={username} placeholder="Enter a username" onChange={e => setUsername(e.target.value)} required />
     </Form.Group>
     <Form.Group>
       <Form.Label>Password:</Form.Label>
-      <Form.Control input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <Form.Control input type="password" value={password}  placeholder="Your password must be 8 or more characters" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <Form.Group>
       <Form.Label>Email:</Form.Label>
-      <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} />
+      <Form.Control type="email" value={email} placeholder="Enter an email address" onChange={e => setEmail(e.target.value)} />
       </Form.Group>
       <Form.Group>
       <Form.Label>Birthday:</Form.Label>
@@ -52,10 +67,10 @@ return(
 }
 RegistrationView.propTypes = {
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    birthday: PropTypes.string.isRequired
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired
   }),
   onRegistration: PropTypes.func.isRequired,
 };

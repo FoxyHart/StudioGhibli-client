@@ -43,7 +43,6 @@ export class MainView extends React.Component {
     registration,
   })
 }
-
 setSelectedMovie(newSelectedMovie) {
   this.setState({
     selectedMovie: newSelectedMovie
