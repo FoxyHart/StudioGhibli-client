@@ -38,12 +38,12 @@ export class MainView extends React.Component {
     });
   }
 
-/* onRegistration(registration) {
+ onRegistration(registration) {
   this.setState({
     registration,
   })
 }
-*/
+
 setSelectedMovie(newSelectedMovie) {
   this.setState({
     selectedMovie: newSelectedMovie

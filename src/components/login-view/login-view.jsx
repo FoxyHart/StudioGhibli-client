@@ -12,15 +12,8 @@ export function LoginView(props) {
   const [ password, setPassword ] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
-  };
-  /*const handleSubmit = (e) => {
     e.preventDefault(); 
-    /* Send a request to the server for authentication 
+    /* Send a request to the server for authentication */
     axios.post('https://studioghiblidb.herokuapp.com/login', {
       Username: username,
       Password: password,
@@ -33,7 +26,7 @@ export function LoginView(props) {
       console.log('User not found')
     });
   };
-  */
+  
   return (
     <Container>
       <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
