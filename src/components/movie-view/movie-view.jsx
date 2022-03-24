@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "../movie-view/movie-view.scss"
+import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
-import { Card, Col, Container, Row, Button, Navbar } from "react-bootstrap";
 
 
 export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-
+    console.log(movie)
     return (
       <Container>
         <Row>
@@ -23,6 +24,12 @@ export class MovieView extends React.Component {
               <Card.Text className="movie-genre"> Genre: {movie.Genre.Name}</Card.Text>
               </Card.Body>
             </Card> 
+             <Link to={`/directors/${movie.Director.Name}`}>
+               <Button variant="link">Director</Button>
+             </Link>
+             <Link to={`/genres/${movie.Genre.Name}`}>
+                <Button variant="link">Genre</Button>
+             </Link>
              <Button onClick={() => { onBackClick(null); }}>Return to Movies</Button>
           </Col>
         </Row>

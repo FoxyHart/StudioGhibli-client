@@ -10,16 +10,50 @@ export function RegistrationView(props) {
   const [ password, setPassword ] = useState('');
   const [ email, setEmail] = useState('');
   const [ birthday, setBirthday] = useState('');
+ 
+ // Declare hook for each input
+ const [ usernameErr, setUsernameErr ] = useState('');
+ const [ passwordErr, setPasswordErr ] = useState('');
+ const [ emailErr, setEmailErr ] = useState('');
 
+ // validate user inputs
+ const validate = () => {
+  let isReq = true;
+
+  if(!username){
+      setUsernameErr('Username required');
+      isReq = false;
+  }else if(username.length < 2){
+      setUsernameErr('Username must be at least 2 characters long');
+      isReq = false;
+  }
+  if(!password){
+      setPasswordErr('Password required');
+      isReq = false;
+  }else if(password.length < 6){
+      setPassword('Password must be at least 6 characters long');
+      isReq = false;
+  }
+  if(!email){
+      setEmailErr('Email required');
+      isReq = false;
+  }else if(email.indexOf('@') === -1){
+      setEmail('Email must be valid');
+      isReq = false;
+  }
+
+  return isReq;
+}
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    axios
+    const isReq = validate();
+    if(isReq) { 
+      axios
     .post(`https://studioghiblidb.herokuapp.com/users`, {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday,
+      Username: Username,
+      Password: Password,
+      Email: Email,
+      Birthday: Birthday,
     })
     .then((response) => {
       const data = response.data;
@@ -28,19 +62,15 @@ export function RegistrationView(props) {
       window.open('/', '_self');
     })
     .catch(function (error) {
-      console.log(error);
+      console.log('error registering');
     });
 };
-
-return(
+}
+return (
   <Container>
     <Row>
     <Col>
-    <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
-      <Container>
-        <Navbar.Brand> Studio Ghibli </Navbar.Brand>
-      </Container>
-      </Navbar>
+ 
    <Form>
      <Form.Group>
       <Form.Label>Username:</Form.Label>
@@ -64,7 +94,7 @@ return(
     </Row>
     </Container>
 );
-}
+  };
 RegistrationView.propTypes = {
   user: PropTypes.shape({
     Username: PropTypes.string.isRequired,
@@ -72,5 +102,5 @@ RegistrationView.propTypes = {
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.string.isRequired
   }),
-  onRegistration: PropTypes.func.isRequired,
-};
+  onRegistration: PropTypes.func,
+}
