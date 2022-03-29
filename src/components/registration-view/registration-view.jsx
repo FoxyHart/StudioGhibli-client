@@ -50,10 +50,10 @@ export function RegistrationView(props) {
     if(isReq) { 
       axios
     .post(`https://studioghiblidb.herokuapp.com/users`, {
-      Username: Username,
-      Password: Password,
-      Email: Email,
-      Birthday: Birthday,
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
     })
     .then((response) => {
       const data = response.data;
@@ -70,7 +70,6 @@ return (
   <Container>
     <Row>
     <Col>
- 
    <Form>
      <Form.Group>
       <Form.Label>Username:</Form.Label>

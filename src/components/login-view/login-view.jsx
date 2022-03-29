@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+
 import { Form, Container, Button, Navbar } from 'react-bootstrap';
-
-
 
 import './login-view.scss';
 
@@ -49,12 +48,15 @@ const validate = () => {
     })
     .catch((e) => {
       console.log('User not found')
-    });
+    })
   }
-  };
+  }
   
   return (
     <Container>
+        <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
+        <Navbar.Brand> Studio Ghibli </Navbar.Brand>
+      </Navbar>
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
@@ -69,12 +71,13 @@ const validate = () => {
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
       </Form>
-      <Container>
       <Button variant="success" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      </Container>
-    </Container>
+      <Container>Need an account?</Container>
+      <Button onClick={() => { window.location.href = '/register' }}
+       variant="secondary" type="button">Register</Button>
+        </Container>
   )
 }
 

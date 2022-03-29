@@ -1,38 +1,43 @@
 import React from 'react';
-import  { Navbar, Container, Nav, Button, Link } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export function NavbarView({ onLoggedOut }) {
-/* const onLoggedOut = () => {
-  localStorage.clear();
-  window.open("/", "_self");
-}
+// React Bootstrap Components
+import { Navbar, Nav, Form, Button, Container, Row, Col, Card, Stack } from 'react-bootstrap/';
 
- const isAuth = () => {
-  if(typeof window == "undefined") {
-    return false;
-  }
-  if (localStorage.getItem("token")) {
-    return localStorage.getItem("token");
-  } else {
-    return false;
-  }
-};
-*/
-return (
+// Custom SCSS
+import '../navbar/navbar';
 
-  <Navbar bg="dark" expand="lg" variant="dark">
-    <Container>
-      <Navbar.Brand className="navbar-logo" href="/"> Studio Ghibli </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
-        <Navbar.Collapse id="responsive-navbar-nav">
+export function NavbarView() {
+  const user = localStorage.getItem('user');
+
+  onLoggedOut = () => {
+    localStorage.clear();
+    window.open('/', '_self');
+  };
+
+  return (
+    <Navbar bg="dark" variant="light" expand="md">
+      <Container>
+        <Link to={`/`}>
+          <Navbar.Brand>
+            <img
+              alt="Logo of Totoro"
+              src={require('../../img/logo.jpg')}
+              width="100"
+              height="auto"
+            />{' '}
+          </Navbar.Brand>
+        </Link>
+        <Button type="button" onClick={() => this.onLoggedOut()}>
+          Logout
+        </Button>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Link to={'/'}>
-              <Button variant="link" onClick={() =>
-              { this.onLoggedOut() }}>Logout</Button>
-            </Link>
+            <Nav.Link href={`/users/${user}`}>My Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-    </Container>
-  </Navbar>
-)
+      </Container>
+    </Navbar>
+  );
 }

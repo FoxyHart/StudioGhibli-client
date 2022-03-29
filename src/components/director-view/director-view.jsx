@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import React Bootstrap Components
-import { Button, Container, Card } from 'react-bootstrap/';
+import { Button, Container, Navbar, Card } from 'react-bootstrap/';
 
 // Import custom SCSS
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
-  render() {
-    const { Director, onBackClick, movies, movie } = this.props;
-
+  render() { 
+    console.log(this.props)
+    const {Director, movies} = this.props;
     return (
-      <Container>
+    <div>
+       <Container>
+        
         <Card className="director-card">
         <Card.Header>Director</Card.Header>
           <Card.Body>
@@ -22,21 +24,13 @@ export class DirectorView extends React.Component {
             <Card.Text className="director-card-text"> {Director.Bio}</Card.Text>
             <Card.Footer className="director-card-footer">
               <Button onClick={() => {
-                  onBackClick(null);
+                  window.location.replace("/")
                 }}> Back </Button>
             </Card.Footer>
           </Card.Body>
         </Card>
       </Container>
-    );
+    </div>);
   }
 }
-
-DirectorView.proptypes = {
-  Director: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Bio: PropTypes.string,
-    Birth: PropTypes.number,
-    Death: PropTypes.number,
-  }).isRequired,
-};
+ 

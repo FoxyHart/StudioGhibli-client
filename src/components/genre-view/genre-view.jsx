@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import React Bootstrap Components
-import { Button, Card, Container } from 'react-bootstrap/';
+import { Button, Card, Container, Navbar } from 'react-bootstrap/';
 
 // Import custom SCSS
 import './genre-view.scss';
 
 export class GenreView extends React.Component {
   render() {
-    const { Genre, onBackClick, movies } = this.props;
-
+    const { Genre, movies } = this.props;
     return (
       <Container>
         <Card>
@@ -21,7 +20,7 @@ export class GenreView extends React.Component {
             <Card.Footer>
               <Button
                 onClick={() => {
-                  onBackClick(null);
+                  window.location.replace("/")
                 }}>Back</Button>
             </Card.Footer>
           </Card.Body>
