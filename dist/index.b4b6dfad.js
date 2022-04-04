@@ -22821,12 +22821,13 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRouterDom = require("react-router-dom");
 var _loginView = require("../login-view/login-view");
-var _registrationView = require("../registration-view/registration-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _genreView = require("../genre-view/genre-view");
 var _directorView = require("../director-view/director-view");
 var _profileView = require("../profile-view/profile-view");
+var _registrationView = require("../registration-view/registration-view");
+var _navbarView = require("../navbar-view/navbar-view");
 var _ = require("react-bootstrap/");
 var _mainViewScss = require("./main-view.scss");
 class MainView extends _reactDefault.default.Component {
@@ -22887,13 +22888,13 @@ class MainView extends _reactDefault.default.Component {
         if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_.Row, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 155
+                lineNumber: 161
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_.Col, {
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 156
+                    lineNumber: 162
                 },
                 __self: this,
                 children: [
@@ -22902,7 +22903,7 @@ class MainView extends _reactDefault.default.Component {
                         ,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 157
+                            lineNumber: 163
                         },
                         __self: this
                     }),
@@ -22910,115 +22911,118 @@ class MainView extends _reactDefault.default.Component {
                 ]
             })
         }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 163
+                lineNumber: 169
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Routes, {
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 164
-                },
-                __self: this,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        exact: true,
-                        path: "/",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(this.rendermovies, {
-                            user: user,
-                            movies: movies
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_navbarView.NavbarView, {
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 170
+                    },
+                    __self: this
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Routes, {
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 171
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.rendermovies, {
+                                user: user,
+                                movies: movies
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 173
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 167
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        path: "/login",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-                            onLoggedIn: (data)=>this.onLoggedIn(data)
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            path: "/login",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                onLoggedIn: (data)=>this.onLoggedIn(data)
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 176
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 168
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        path: "/register",
-                        render: ()=>{
-                            if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Redirect, {
-                                to: "/register"
-                            }));
-                            return(/*#__PURE__*/ _jsxRuntime.jsx(_.Col, {
-                                lg: 8,
-                                md: 8,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
-                                })
-                            }));
-                        },
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 170
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        path: "/movies/:movieId",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderMovie, {
-                            movies: movies,
-                            user: user
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/register",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderRegister, {
+                                movies: movies,
+                                user: user
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 179
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 178
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        exact: true,
-                        path: "/genre/:genre",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderGenre, {
-                            movies: movies,
-                            user: user
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            path: "/movies/:movieId",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderMovie, {
+                                movies: movies,
+                                user: user
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 182
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 181
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        exact: true,
-                        path: "/directors/:director",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderDirector, {
-                            movies: movies,
-                            user: user
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/genre/:genre",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderGenre, {
+                                movies: movies,
+                                user: user
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 185
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 184
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                        exact: true,
-                        path: "/users/:Username",
-                        element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderUser, {
-                            movies: movies,
-                            user: user
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/directors/:director",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderDirector, {
+                                movies: movies,
+                                user: user
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 188
+                            },
+                            __self: this
                         }),
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 187
-                        },
-                        __self: this
-                    })
-                ]
-            })
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                            exact: true,
+                            path: "/users/:Username",
+                            element: /*#__PURE__*/ _jsxRuntime.jsx(this.renderUser, {
+                                movies: movies,
+                                user: user
+                            }),
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 191
+                            },
+                            __self: this
+                        })
+                    ]
+                })
+            ]
         }));
     }
     constructor(){
@@ -23192,6 +23196,25 @@ class MainView extends _reactDefault.default.Component {
                 __self: this
             });
         });
+        _helpers.defineProperty(this, "renderRegister", ({ user , movies  })=>{
+            if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Redirect, {
+                to: "/",
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 153
+                },
+                __self: this
+            }));
+            return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
+                movies: movies,
+                user: user,
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 155
+                },
+                __self: this
+            }));
+        });
         this.state = {
             movies: [],
             selectedMovie: null,
@@ -23208,7 +23231,1673 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6AEwr","react":"21dqq","axios":"jo6P5","react-router-dom":"fdOAw","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../genre-view/genre-view":"4tuA0","react-bootstrap/":"3AD9A","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI","../profile-view/profile-view":"2vVqf","@swc/helpers":"9Dm3z","../director-view/director-view":"9tpci"}],"jo6P5":[function(require,module,exports) {
+},{"@swc/helpers":"9Dm3z","react/jsx-runtime":"6AEwr","react":"21dqq","axios":"jo6P5","react-router-dom":"fdOAw","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../genre-view/genre-view":"4tuA0","../director-view/director-view":"9tpci","../profile-view/profile-view":"2vVqf","../registration-view/registration-view":"3U8r7","react-bootstrap/":"3AD9A","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI","../navbar-view/navbar-view":"divrl"}],"9Dm3z":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "applyDecoratedDescriptor", ()=>_applyDecoratedDescriptorDefault.default
+);
+parcelHelpers.export(exports, "arrayWithHoles", ()=>_arrayWithHolesDefault.default
+);
+parcelHelpers.export(exports, "arrayWithoutHoles", ()=>_arrayWithoutHolesDefault.default
+);
+parcelHelpers.export(exports, "assertThisInitialized", ()=>_assertThisInitializedDefault.default
+);
+parcelHelpers.export(exports, "asyncGenerator", ()=>_asyncGeneratorDefault.default
+);
+parcelHelpers.export(exports, "asyncGeneratorDelegate", ()=>_asyncGeneratorDelegateDefault.default
+);
+parcelHelpers.export(exports, "asyncIterator", ()=>_asyncIteratorDefault.default
+);
+parcelHelpers.export(exports, "asyncToGenerator", ()=>_asyncToGeneratorDefault.default
+);
+parcelHelpers.export(exports, "awaitAsyncGenerator", ()=>_awaitAsyncGeneratorDefault.default
+);
+parcelHelpers.export(exports, "awaitValue", ()=>_awaitValueDefault.default
+);
+parcelHelpers.export(exports, "classCallCheck", ()=>_classCallCheckDefault.default
+);
+parcelHelpers.export(exports, "classNameTDZError", ()=>_classNameTdzErrorDefault.default
+);
+parcelHelpers.export(exports, "classPrivateFieldGet", ()=>_classPrivateFieldGetDefault.default
+);
+parcelHelpers.export(exports, "classPrivateFieldLooseBase", ()=>_classPrivateFieldLooseBaseDefault.default
+);
+parcelHelpers.export(exports, "classPrivateFieldSet", ()=>_classPrivateFieldSetDefault.default
+);
+parcelHelpers.export(exports, "classPrivateMethodGet", ()=>_classPrivateMethodGetDefault.default
+);
+parcelHelpers.export(exports, "classPrivateMethodSet", ()=>_classPrivateMethodSetDefault.default
+);
+parcelHelpers.export(exports, "classStaticPrivateFieldSpecGet", ()=>_classStaticPrivateFieldSpecGetDefault.default
+);
+parcelHelpers.export(exports, "classStaticPrivateFieldSpecSet", ()=>_classStaticPrivateFieldSpecSetDefault.default
+);
+parcelHelpers.export(exports, "construct", ()=>_constructDefault.default
+);
+parcelHelpers.export(exports, "createClass", ()=>_createClassDefault.default
+);
+parcelHelpers.export(exports, "decorate", ()=>_decorateDefault.default
+);
+parcelHelpers.export(exports, "defaults", ()=>_defaultsDefault.default
+);
+parcelHelpers.export(exports, "defineEnumerableProperties", ()=>_defineEnumerablePropertiesDefault.default
+);
+parcelHelpers.export(exports, "defineProperty", ()=>_definePropertyDefault.default
+);
+parcelHelpers.export(exports, "extends", ()=>_extendsDefault.default
+);
+parcelHelpers.export(exports, "get", ()=>_getDefault.default
+);
+parcelHelpers.export(exports, "getPrototypeOf", ()=>_getPrototypeOfDefault.default
+);
+parcelHelpers.export(exports, "inherits", ()=>_inheritsDefault.default
+);
+parcelHelpers.export(exports, "inheritsLoose", ()=>_inheritsLooseDefault.default
+);
+parcelHelpers.export(exports, "initializerDefineProperty", ()=>_initializerDefinePropertyDefault.default
+);
+parcelHelpers.export(exports, "initializerWarningHelper", ()=>_initializerWarningHelperDefault.default
+);
+parcelHelpers.export(exports, "_instanceof", ()=>_instanceofDefault.default
+);
+parcelHelpers.export(exports, "interopRequireDefault", ()=>_interopRequireDefaultDefault.default
+);
+parcelHelpers.export(exports, "interopRequireWildcard", ()=>_interopRequireWildcardDefault.default
+);
+parcelHelpers.export(exports, "isNativeFunction", ()=>_isNativeFunctionDefault.default
+);
+parcelHelpers.export(exports, "iterableToArray", ()=>_iterableToArrayDefault.default
+);
+parcelHelpers.export(exports, "iterableToArrayLimit", ()=>_iterableToArrayLimitDefault.default
+);
+parcelHelpers.export(exports, "iterableToArrayLimitLoose", ()=>_iterableToArrayLimitLooseDefault.default
+);
+parcelHelpers.export(exports, "jsx", ()=>_jsxDefault.default
+);
+parcelHelpers.export(exports, "newArrowCheck", ()=>_newArrowCheckDefault.default
+);
+parcelHelpers.export(exports, "nonIterableRest", ()=>_nonIterableRestDefault.default
+);
+parcelHelpers.export(exports, "nonIterableSpread", ()=>_nonIterableSpreadDefault.default
+);
+parcelHelpers.export(exports, "objectSpread", ()=>_objectSpreadDefault.default
+);
+parcelHelpers.export(exports, "objectWithoutProperties", ()=>_objectWithoutPropertiesDefault.default
+);
+parcelHelpers.export(exports, "objectWithoutPropertiesLoose", ()=>_objectWithoutPropertiesLooseDefault.default
+);
+parcelHelpers.export(exports, "possibleConstructorReturn", ()=>_possibleConstructorReturnDefault.default
+);
+parcelHelpers.export(exports, "readOnlyError", ()=>_readOnlyErrorDefault.default
+);
+parcelHelpers.export(exports, "set", ()=>_setDefault.default
+);
+parcelHelpers.export(exports, "setPrototypeOf", ()=>_setPrototypeOfDefault.default
+);
+parcelHelpers.export(exports, "skipFirstGeneratorNext", ()=>_skipFirstGeneratorNextDefault.default
+);
+parcelHelpers.export(exports, "slicedToArray", ()=>_slicedToArrayDefault.default
+);
+parcelHelpers.export(exports, "slicedToArrayLoose", ()=>_slicedToArrayLooseDefault.default
+);
+parcelHelpers.export(exports, "superPropBase", ()=>_superPropBaseDefault.default
+);
+parcelHelpers.export(exports, "taggedTemplateLiteral", ()=>_taggedTemplateLiteralDefault.default
+);
+parcelHelpers.export(exports, "taggedTemplateLiteralLoose", ()=>_taggedTemplateLiteralLooseDefault.default
+);
+parcelHelpers.export(exports, "_throw", ()=>_throwDefault.default
+);
+parcelHelpers.export(exports, "toArray", ()=>_toArrayDefault.default
+);
+parcelHelpers.export(exports, "toConsumableArray", ()=>_toConsumableArrayDefault.default
+);
+parcelHelpers.export(exports, "toPrimitive", ()=>_toPrimitiveDefault.default
+);
+parcelHelpers.export(exports, "toPropertyKey", ()=>_toPropertyKeyDefault.default
+);
+parcelHelpers.export(exports, "typeOf", ()=>_typeOfDefault.default
+);
+parcelHelpers.export(exports, "wrapAsyncGenerator", ()=>_wrapAsyncGeneratorDefault.default
+);
+parcelHelpers.export(exports, "wrapNativeSuper", ()=>_wrapNativeSuperDefault.default
+);
+parcelHelpers.export(exports, "createSuper", ()=>_createSuperDefault.default
+);
+parcelHelpers.export(exports, "isNativeReflectConstruct", ()=>_isNativeReflectConstructDefault.default
+);
+var _applyDecoratedDescriptor = require("./_apply_decorated_descriptor");
+var _applyDecoratedDescriptorDefault = parcelHelpers.interopDefault(_applyDecoratedDescriptor);
+var _arrayWithHoles = require("./_array_with_holes");
+var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
+var _arrayWithoutHoles = require("./_array_without_holes");
+var _arrayWithoutHolesDefault = parcelHelpers.interopDefault(_arrayWithoutHoles);
+var _assertThisInitialized = require("./_assert_this_initialized");
+var _assertThisInitializedDefault = parcelHelpers.interopDefault(_assertThisInitialized);
+var _asyncGenerator = require("./_async_generator");
+var _asyncGeneratorDefault = parcelHelpers.interopDefault(_asyncGenerator);
+var _asyncGeneratorDelegate = require("./_async_generator_delegate");
+var _asyncGeneratorDelegateDefault = parcelHelpers.interopDefault(_asyncGeneratorDelegate);
+var _asyncIterator = require("./_async_iterator");
+var _asyncIteratorDefault = parcelHelpers.interopDefault(_asyncIterator);
+var _asyncToGenerator = require("./_async_to_generator");
+var _asyncToGeneratorDefault = parcelHelpers.interopDefault(_asyncToGenerator);
+var _awaitAsyncGenerator = require("./_await_async_generator");
+var _awaitAsyncGeneratorDefault = parcelHelpers.interopDefault(_awaitAsyncGenerator);
+var _awaitValue = require("./_await_value");
+var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
+var _classCallCheck = require("./_class_call_check");
+var _classCallCheckDefault = parcelHelpers.interopDefault(_classCallCheck);
+var _classNameTdzError = require("./_class_name_tdz_error");
+var _classNameTdzErrorDefault = parcelHelpers.interopDefault(_classNameTdzError);
+var _classPrivateFieldGet = require("./_class_private_field_get");
+var _classPrivateFieldGetDefault = parcelHelpers.interopDefault(_classPrivateFieldGet);
+var _classPrivateFieldLooseBase = require("./_class_private_field_loose_base");
+var _classPrivateFieldLooseBaseDefault = parcelHelpers.interopDefault(_classPrivateFieldLooseBase);
+var _classPrivateFieldSet = require("./_class_private_field_set");
+var _classPrivateFieldSetDefault = parcelHelpers.interopDefault(_classPrivateFieldSet);
+var _classPrivateMethodGet = require("./_class_private_method_get");
+var _classPrivateMethodGetDefault = parcelHelpers.interopDefault(_classPrivateMethodGet);
+var _classPrivateMethodSet = require("./_class_private_method_set");
+var _classPrivateMethodSetDefault = parcelHelpers.interopDefault(_classPrivateMethodSet);
+var _classStaticPrivateFieldSpecGet = require("./_class_static_private_field_spec_get");
+var _classStaticPrivateFieldSpecGetDefault = parcelHelpers.interopDefault(_classStaticPrivateFieldSpecGet);
+var _classStaticPrivateFieldSpecSet = require("./_class_static_private_field_spec_set");
+var _classStaticPrivateFieldSpecSetDefault = parcelHelpers.interopDefault(_classStaticPrivateFieldSpecSet);
+var _construct = require("./_construct");
+var _constructDefault = parcelHelpers.interopDefault(_construct);
+var _createClass = require("./_create_class");
+var _createClassDefault = parcelHelpers.interopDefault(_createClass);
+var _decorate = require("./_decorate");
+var _decorateDefault = parcelHelpers.interopDefault(_decorate);
+var _defaults = require("./_defaults");
+var _defaultsDefault = parcelHelpers.interopDefault(_defaults);
+var _defineEnumerableProperties = require("./_define_enumerable_properties");
+var _defineEnumerablePropertiesDefault = parcelHelpers.interopDefault(_defineEnumerableProperties);
+var _defineProperty = require("./_define_property");
+var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
+var _extends = require("./_extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _get = require("./_get");
+var _getDefault = parcelHelpers.interopDefault(_get);
+var _getPrototypeOf = require("./_get_prototype_of");
+var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
+var _inherits = require("./_inherits");
+var _inheritsDefault = parcelHelpers.interopDefault(_inherits);
+var _inheritsLoose = require("./_inherits_loose");
+var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
+var _initializerDefineProperty = require("./_initializer_define_property");
+var _initializerDefinePropertyDefault = parcelHelpers.interopDefault(_initializerDefineProperty);
+var _initializerWarningHelper = require("./_initializer_warning_helper");
+var _initializerWarningHelperDefault = parcelHelpers.interopDefault(_initializerWarningHelper);
+var _instanceof = require("./_instanceof");
+var _instanceofDefault = parcelHelpers.interopDefault(_instanceof);
+var _interopRequireDefault = require("./_interop_require_default");
+var _interopRequireDefaultDefault = parcelHelpers.interopDefault(_interopRequireDefault);
+var _interopRequireWildcard = require("./_interop_require_wildcard");
+var _interopRequireWildcardDefault = parcelHelpers.interopDefault(_interopRequireWildcard);
+var _isNativeFunction = require("./_is_native_function");
+var _isNativeFunctionDefault = parcelHelpers.interopDefault(_isNativeFunction);
+var _iterableToArray = require("./_iterable_to_array");
+var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
+var _iterableToArrayLimit = require("./_iterable_to_array_limit");
+var _iterableToArrayLimitDefault = parcelHelpers.interopDefault(_iterableToArrayLimit);
+var _iterableToArrayLimitLoose = require("./_iterable_to_array_limit_loose");
+var _iterableToArrayLimitLooseDefault = parcelHelpers.interopDefault(_iterableToArrayLimitLoose);
+var _jsx = require("./_jsx");
+var _jsxDefault = parcelHelpers.interopDefault(_jsx);
+var _newArrowCheck = require("./_new_arrow_check");
+var _newArrowCheckDefault = parcelHelpers.interopDefault(_newArrowCheck);
+var _nonIterableRest = require("./_non_iterable_rest");
+var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
+var _nonIterableSpread = require("./_non_iterable_spread");
+var _nonIterableSpreadDefault = parcelHelpers.interopDefault(_nonIterableSpread);
+var _objectSpread = require("./_object_spread");
+var _objectSpreadDefault = parcelHelpers.interopDefault(_objectSpread);
+var _objectWithoutProperties = require("./_object_without_properties");
+var _objectWithoutPropertiesDefault = parcelHelpers.interopDefault(_objectWithoutProperties);
+var _objectWithoutPropertiesLoose = require("./_object_without_properties_loose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _possibleConstructorReturn = require("./_possible_constructor_return");
+var _possibleConstructorReturnDefault = parcelHelpers.interopDefault(_possibleConstructorReturn);
+var _readOnlyError = require("./_read_only_error");
+var _readOnlyErrorDefault = parcelHelpers.interopDefault(_readOnlyError);
+var _set = require("./_set");
+var _setDefault = parcelHelpers.interopDefault(_set);
+var _setPrototypeOf = require("./_set_prototype_of");
+var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
+var _skipFirstGeneratorNext = require("./_skip_first_generator_next");
+var _skipFirstGeneratorNextDefault = parcelHelpers.interopDefault(_skipFirstGeneratorNext);
+var _slicedToArray = require("./_sliced_to_array");
+var _slicedToArrayDefault = parcelHelpers.interopDefault(_slicedToArray);
+var _slicedToArrayLoose = require("./_sliced_to_array_loose");
+var _slicedToArrayLooseDefault = parcelHelpers.interopDefault(_slicedToArrayLoose);
+var _superPropBase = require("./_super_prop_base");
+var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
+var _taggedTemplateLiteral = require("./_tagged_template_literal");
+var _taggedTemplateLiteralDefault = parcelHelpers.interopDefault(_taggedTemplateLiteral);
+var _taggedTemplateLiteralLoose = require("./_tagged_template_literal_loose");
+var _taggedTemplateLiteralLooseDefault = parcelHelpers.interopDefault(_taggedTemplateLiteralLoose);
+var _throw = require("./_throw");
+var _throwDefault = parcelHelpers.interopDefault(_throw);
+var _toArray = require("./_to_array");
+var _toArrayDefault = parcelHelpers.interopDefault(_toArray);
+var _toConsumableArray = require("./_to_consumable_array");
+var _toConsumableArrayDefault = parcelHelpers.interopDefault(_toConsumableArray);
+var _toPrimitive = require("./_to_primitive");
+var _toPrimitiveDefault = parcelHelpers.interopDefault(_toPrimitive);
+var _toPropertyKey = require("./_to_property_key");
+var _toPropertyKeyDefault = parcelHelpers.interopDefault(_toPropertyKey);
+var _typeOf = require("./_type_of");
+var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
+var _wrapAsyncGenerator = require("./_wrap_async_generator");
+var _wrapAsyncGeneratorDefault = parcelHelpers.interopDefault(_wrapAsyncGenerator);
+var _wrapNativeSuper = require("./_wrap_native_super");
+var _wrapNativeSuperDefault = parcelHelpers.interopDefault(_wrapNativeSuper);
+var _createSuper = require("./_create_super");
+var _createSuperDefault = parcelHelpers.interopDefault(_createSuper);
+var _isNativeReflectConstruct = require("./_is_native_reflect_construct");
+var _isNativeReflectConstructDefault = parcelHelpers.interopDefault(_isNativeReflectConstruct);
+
+},{"./_apply_decorated_descriptor":"6Uxpi","./_array_with_holes":"jK4ol","./_array_without_holes":"4xW5O","./_assert_this_initialized":"9ttHL","./_async_generator":"c1Fxn","./_async_generator_delegate":"g2xDn","./_async_iterator":"i0uoz","./_async_to_generator":"4L1PR","./_await_async_generator":"cJhNR","./_await_value":"61DYg","./_class_call_check":"1lDqY","./_class_name_tdz_error":"fb7ka","./_class_private_field_get":"4JlXL","./_class_private_field_loose_base":"daYYY","./_class_private_field_set":"d7gDM","./_class_private_method_get":"02hMT","./_class_private_method_set":"3sgKu","./_class_static_private_field_spec_get":"aJiy0","./_class_static_private_field_spec_set":"13X0a","./_construct":"1JSGS","./_create_class":"3hIAN","./_decorate":"bBOBc","./_defaults":"9B1Hi","./_define_enumerable_properties":"fLDuq","./_define_property":"66tZd","./_extends":"emRQr","./_get":"d7rIq","./_get_prototype_of":"9J7rd","./_inherits":"jKzCA","./_inherits_loose":"66DaS","./_initializer_define_property":"hpAMk","./_initializer_warning_helper":"4PF1G","./_instanceof":"hcOwE","./_interop_require_default":"auSRf","./_interop_require_wildcard":"h8y9c","./_is_native_function":"8u1EX","./_iterable_to_array":"fioPv","./_iterable_to_array_limit":"dsUdy","./_iterable_to_array_limit_loose":"5HHUm","./_jsx":"4vGAS","./_new_arrow_check":"4pxHK","./_non_iterable_rest":"lBdNT","./_non_iterable_spread":"lQAYF","./_object_spread":"a4gFb","./_object_without_properties":"ioY4X","./_object_without_properties_loose":"jj0GB","./_possible_constructor_return":"dikHJ","./_read_only_error":"9J5B3","./_set":"jUH2n","./_set_prototype_of":"8IYjp","./_skip_first_generator_next":"1QKVU","./_sliced_to_array":"c4bqb","./_sliced_to_array_loose":"6BenR","./_super_prop_base":"1Lhsi","./_tagged_template_literal":"0zKhv","./_tagged_template_literal_loose":"cjiAi","./_throw":"5CpWw","./_to_array":"2CPtF","./_to_consumable_array":"7TGZW","./_to_primitive":"jiiy5","./_to_property_key":"hXDcu","./_type_of":"itxYh","./_wrap_async_generator":"02Kif","./_wrap_native_super":"70RJm","./_create_super":"jVs2M","./_is_native_reflect_construct":"9acFY","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"6Uxpi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+    var desc = {
+    };
+    Object["keys"](descriptor).forEach(function(key) {
+        desc[key] = descriptor[key];
+    });
+    desc.enumerable = !!desc.enumerable;
+    desc.configurable = !!desc.configurable;
+    if ('value' in desc || desc.initializer) desc.writable = true;
+    desc = decorators.slice().reverse().reduce(function(desc1, decorator) {
+        return decorator ? decorator(target, property, desc1) || desc1 : desc1;
+    }, desc);
+    if (context && desc.initializer !== void 0) {
+        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+        desc.initializer = undefined;
+    }
+    if (desc.initializer === void 0) {
+        Object["defineProperty"](target, property, desc);
+        desc = null;
+    }
+    return desc;
+}
+exports.default = _applyDecoratedDescriptor;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fYYWv":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"jK4ol":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+}
+exports.default = _arrayWithHoles;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4xW5O":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) {
+        for(var i = 0, arr2 = new Array(arr.length); i < arr.length; i++)arr2[i] = arr[i];
+        return arr2;
+    }
+}
+exports.default = _arrayWithoutHoles;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9ttHL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _assertThisInitialized(self) {
+    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return self;
+}
+exports.default = _assertThisInitialized;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"c1Fxn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _awaitValue = require("./_await_value");
+var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
+function AsyncGenerator(gen) {
+    var front, back;
+    function send(key, arg) {
+        return new Promise(function(resolve, reject) {
+            var request = {
+                key: key,
+                arg: arg,
+                resolve: resolve,
+                reject: reject,
+                next: null
+            };
+            if (back) back = back.next = request;
+            else {
+                front = back = request;
+                resume(key, arg);
+            }
+        });
+    }
+    function resume(key, arg) {
+        try {
+            var result = gen[key](arg);
+            var value = result.value;
+            var wrappedAwait = value instanceof _awaitValueDefault.default;
+            Promise.resolve(wrappedAwait ? value.wrapped : value).then(function(arg1) {
+                if (wrappedAwait) {
+                    resume("next", arg1);
+                    return;
+                }
+                settle(result.done ? "return" : "normal", arg1);
+            }, function(err) {
+                resume("throw", err);
+            });
+        } catch (err) {
+            settle("throw", err);
+        }
+    }
+    function settle(type, value) {
+        switch(type){
+            case "return":
+                front.resolve({
+                    value: value,
+                    done: true
+                });
+                break;
+            case "throw":
+                front.reject(value);
+                break;
+            default:
+                front.resolve({
+                    value: value,
+                    done: false
+                });
+                break;
+        }
+        front = front.next;
+        if (front) resume(front.key, front.arg);
+        else back = null;
+    }
+    this._invoke = send;
+    if (typeof gen.return !== "function") this.return = undefined;
+}
+exports.default = AsyncGenerator;
+if (typeof Symbol === "function" && Symbol.asyncIterator) AsyncGenerator.prototype[Symbol.asyncIterator] = function() {
+    return this;
+};
+AsyncGenerator.prototype.next = function(arg) {
+    return this._invoke("next", arg);
+};
+AsyncGenerator.prototype.throw = function(arg) {
+    return this._invoke("throw", arg);
+};
+AsyncGenerator.prototype.return = function(arg) {
+    return this._invoke("return", arg);
+};
+
+},{"./_await_value":"61DYg","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"61DYg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _AwaitValue(value) {
+    this.wrapped = value;
+}
+exports.default = _AwaitValue;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"g2xDn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _asyncGeneratorDelegate(inner, awaitWrap) {
+    var iter = {
+    }, waiting = false;
+    function pump(key, value) {
+        waiting = true;
+        value = new Promise(function(resolve) {
+            resolve(inner[key](value));
+        });
+        return {
+            done: false,
+            value: awaitWrap(value)
+        };
+    }
+    if (typeof Symbol === "function" && Symbol.iterator) iter[Symbol.iterator] = function() {
+        return this;
+    };
+    iter.next = function(value) {
+        if (waiting) {
+            waiting = false;
+            return value;
+        }
+        return pump("next", value);
+    };
+    if (typeof inner.throw === "function") iter.throw = function(value) {
+        if (waiting) {
+            waiting = false;
+            throw value;
+        }
+        return pump("throw", value);
+    };
+    if (typeof inner.return === "function") iter.return = function(value) {
+        return pump("return", value);
+    };
+    return iter;
+}
+exports.default = _asyncGeneratorDelegate;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"i0uoz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _asyncIterator(iterable) {
+    var method;
+    if (typeof Symbol === "function") {
+        if (Symbol.asyncIterator) {
+            method = iterable[Symbol.asyncIterator];
+            if (method != null) return method.call(iterable);
+        }
+        if (Symbol.iterator) {
+            method = iterable[Symbol.iterator];
+            if (method != null) return method.call(iterable);
+        }
+    }
+    throw new TypeError("Object is not async iterable");
+}
+exports.default = _asyncIterator;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4L1PR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+    try {
+        var info = gen[key](arg);
+        var value = info.value;
+    } catch (error) {
+        reject(error);
+        return;
+    }
+    if (info.done) resolve(value);
+    else Promise.resolve(value).then(_next, _throw);
+}
+function _asyncToGenerator(fn) {
+    return function() {
+        var self = this, args = arguments;
+        return new Promise(function(resolve, reject) {
+            var gen = fn.apply(self, args);
+            function _next(value) {
+                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+            }
+            function _throw(err) {
+                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+            }
+            _next(undefined);
+        });
+    };
+}
+exports.default = _asyncToGenerator;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"cJhNR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _awaitValue = require("./_await_value");
+var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
+function _awaitAsyncGenerator(value) {
+    return new _awaitValueDefault.default(value);
+}
+exports.default = _awaitAsyncGenerator;
+
+},{"./_await_value":"61DYg","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1lDqY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+}
+exports.default = _classCallCheck;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fb7ka":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classNameTDZError(name) {
+    throw new Error("Class \"" + name + "\" cannot be referenced in computed property keys.");
+}
+exports.default = _classNameTDZError;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4JlXL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classPrivateFieldGet(receiver, privateMap) {
+    if (!privateMap.has(receiver)) throw new TypeError("attempted to get private field on non-instance");
+    return privateMap.get(receiver).value;
+}
+exports.default = _classPrivateFieldGet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"daYYY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classPrivateFieldBase(receiver, privateKey) {
+    if (!Object.prototype.hasOwnProperty.call(receiver, privateKey)) throw new TypeError("attempted to use private field on non-instance");
+    return receiver;
+}
+exports.default = _classPrivateFieldBase;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"d7gDM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classPrivateFieldSet(receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) throw new TypeError("attempted to set private field on non-instance");
+    var descriptor = privateMap.get(receiver);
+    if (!descriptor.writable) throw new TypeError("attempted to set read only private field");
+    descriptor.value = value;
+    return value;
+}
+exports.default = _classPrivateFieldSet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"02hMT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classPrivateMethodGet(receiver, privateSet, fn) {
+    if (!privateSet.has(receiver)) throw new TypeError("attempted to get private field on non-instance");
+    return fn;
+}
+exports.default = _classPrivateMethodGet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"3sgKu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classPrivateMethodSet() {
+    throw new TypeError("attempted to reassign private method");
+}
+exports.default = _classPrivateMethodSet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"aJiy0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classStaticPrivateFieldSpecGet(receiver, classConstructor, descriptor) {
+    if (receiver !== classConstructor) throw new TypeError("Private static access of wrong provenance");
+    return descriptor.value;
+}
+exports.default = _classStaticPrivateFieldSpecGet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"13X0a":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classStaticPrivateFieldSpecSet(receiver, classConstructor, descriptor, value) {
+    if (receiver !== classConstructor) throw new TypeError("Private static access of wrong provenance");
+    if (!descriptor.writable) throw new TypeError("attempted to set read only private field");
+    descriptor.value = value;
+    return value;
+}
+exports.default = _classStaticPrivateFieldSpecSet;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1JSGS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+    try {
+        Date.prototype.toString.call(Reflect.construct(Date, [], function() {
+        }));
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+function construct(Parent, args, Class) {
+    if (isNativeReflectConstruct()) construct = Reflect.construct;
+    else construct = function construct1(Parent1, args1, Class1) {
+        var a = [
+            null
+        ];
+        a.push.apply(a, args1);
+        var Constructor = Function.bind.apply(Parent1, a);
+        var instance = new Constructor();
+        if (Class1) _setPrototypeOf(instance, Class1.prototype);
+        return instance;
+    };
+    return construct.apply(null, arguments);
+}
+function _construct(Parent, args, Class) {
+    return construct.apply(null, arguments);
+}
+exports.default = _construct;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"3hIAN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _defineProperties(target, props) {
+    for(var i = 0; i < props.length; i++){
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+    }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+}
+exports.default = _createClass;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"bBOBc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _toArray = require("./_to_array");
+var _toArrayDefault = parcelHelpers.interopDefault(_toArray);
+var _toPropertyKey = require("./_to_property_key");
+var _toPropertyKeyDefault = parcelHelpers.interopDefault(_toPropertyKey);
+function _decorate(decorators, factory, superClass) {
+    var r = factory(function initialize(O) {
+        _initializeInstanceElements(O, decorated.elements);
+    }, superClass);
+    var decorated = _decorateClass(_coalesceClassElements(r.d.map(_createElementDescriptor)), decorators);
+    _initializeClassElements(r.F, decorated.elements);
+    return _runClassFinishers(r.F, decorated.finishers);
+}
+exports.default = _decorate;
+function _createElementDescriptor(def) {
+    var key = _toPropertyKeyDefault.default(def.key);
+    var descriptor;
+    if (def.kind === "method") {
+        descriptor = {
+            value: def.value,
+            writable: true,
+            configurable: true,
+            enumerable: false
+        };
+        Object.defineProperty(def.value, "name", {
+            value: _typeof(key) === "symbol" ? "" : key,
+            configurable: true
+        });
+    } else if (def.kind === "get") descriptor = {
+        get: def.value,
+        configurable: true,
+        enumerable: false
+    };
+    else if (def.kind === "set") descriptor = {
+        set: def.value,
+        configurable: true,
+        enumerable: false
+    };
+    else if (def.kind === "field") descriptor = {
+        configurable: true,
+        writable: true,
+        enumerable: true
+    };
+    var element = {
+        kind: def.kind === "field" ? "field" : "method",
+        key: key,
+        placement: def.static ? "static" : def.kind === "field" ? "own" : "prototype",
+        descriptor: descriptor
+    };
+    if (def.decorators) element.decorators = def.decorators;
+    if (def.kind === "field") element.initializer = def.value;
+    return element;
+}
+function _coalesceGetterSetter(element, other) {
+    if (element.descriptor.get !== undefined) other.descriptor.get = element.descriptor.get;
+    else other.descriptor.set = element.descriptor.set;
+}
+function _coalesceClassElements(elements) {
+    var newElements = [];
+    var isSameElement = function isSameElement1(other) {
+        return other.kind === "method" && other.key === element.key && other.placement === element.placement;
+    };
+    for(var i = 0; i < elements.length; i++){
+        var element = elements[i];
+        var other;
+        if (element.kind === "method" && (other = newElements.find(isSameElement))) {
+            if (_isDataDescriptor(element.descriptor) || _isDataDescriptor(other.descriptor)) {
+                if (_hasDecorators(element) || _hasDecorators(other)) throw new ReferenceError("Duplicated methods (" + element.key + ") can't be decorated.");
+                other.descriptor = element.descriptor;
+            } else {
+                if (_hasDecorators(element)) {
+                    if (_hasDecorators(other)) throw new ReferenceError("Decorators can't be placed on different accessors with for the same property (" + element.key + ").");
+                    other.decorators = element.decorators;
+                }
+                _coalesceGetterSetter(element, other);
+            }
+        } else newElements.push(element);
+    }
+    return newElements;
+}
+function _hasDecorators(element) {
+    return element.decorators && element.decorators.length;
+}
+function _isDataDescriptor(desc) {
+    return desc !== undefined && !(desc.value === undefined && desc.writable === undefined);
+}
+function _initializeClassElements(F, elements) {
+    var proto = F.prototype;
+    [
+        "method",
+        "field"
+    ].forEach(function(kind) {
+        elements.forEach(function(element) {
+            var placement = element.placement;
+            if (element.kind === kind && (placement === "static" || placement === "prototype")) {
+                var receiver = placement === "static" ? F : proto;
+                _defineClassElement(receiver, element);
+            }
+        });
+    });
+}
+function _initializeInstanceElements(O, elements) {
+    [
+        "method",
+        "field"
+    ].forEach(function(kind) {
+        elements.forEach(function(element) {
+            if (element.kind === kind && element.placement === "own") _defineClassElement(O, element);
+        });
+    });
+}
+function _defineClassElement(receiver, element) {
+    var descriptor = element.descriptor;
+    if (element.kind === "field") {
+        var initializer = element.initializer;
+        descriptor = {
+            enumerable: descriptor.enumerable,
+            writable: descriptor.writable,
+            configurable: descriptor.configurable,
+            value: initializer === void 0 ? void 0 : initializer.call(receiver)
+        };
+    }
+    Object.defineProperty(receiver, element.key, descriptor);
+}
+function _decorateClass(elements, decorators) {
+    var newElements = [];
+    var finishers = [];
+    var placements = {
+        static: [],
+        prototype: [],
+        own: []
+    };
+    elements.forEach(function(element) {
+        _addElementPlacement(element, placements);
+    });
+    elements.forEach(function(element) {
+        if (!_hasDecorators(element)) return newElements.push(element);
+        var elementFinishersExtras = _decorateElement(element, placements);
+        newElements.push(elementFinishersExtras.element);
+        newElements.push.apply(newElements, elementFinishersExtras.extras);
+        finishers.push.apply(finishers, elementFinishersExtras.finishers);
+    });
+    if (!decorators) return {
+        elements: newElements,
+        finishers: finishers
+    };
+    var result = _decorateConstructor(newElements, decorators);
+    finishers.push.apply(finishers, result.finishers);
+    result.finishers = finishers;
+    return result;
+}
+function _addElementPlacement(element, placements, silent) {
+    var keys = placements[element.placement];
+    if (!silent && keys.indexOf(element.key) !== -1) throw new TypeError("Duplicated element (" + element.key + ")");
+    keys.push(element.key);
+}
+function _decorateElement(element, placements) {
+    var extras = [];
+    var finishers = [];
+    for(var decorators = element.decorators, i = decorators.length - 1; i >= 0; i--){
+        var keys = placements[element.placement];
+        keys.splice(keys.indexOf(element.key), 1);
+        var elementObject = _fromElementDescriptor(element);
+        var elementFinisherExtras = _toElementFinisherExtras(decorators[i](elementObject) || elementObject);
+        element = elementFinisherExtras.element;
+        _addElementPlacement(element, placements);
+        if (elementFinisherExtras.finisher) finishers.push(elementFinisherExtras.finisher);
+        var newExtras = elementFinisherExtras.extras;
+        if (newExtras) {
+            for(var j = 0; j < newExtras.length; j++)_addElementPlacement(newExtras[j], placements);
+            extras.push.apply(extras, newExtras);
+        }
+    }
+    return {
+        element: element,
+        finishers: finishers,
+        extras: extras
+    };
+}
+function _decorateConstructor(elements, decorators) {
+    var finishers = [];
+    for(var i = decorators.length - 1; i >= 0; i--){
+        var obj = _fromClassDescriptor(elements);
+        var elementsAndFinisher = _toClassDescriptor(decorators[i](obj) || obj);
+        if (elementsAndFinisher.finisher !== undefined) finishers.push(elementsAndFinisher.finisher);
+        if (elementsAndFinisher.elements !== undefined) {
+            elements = elementsAndFinisher.elements;
+            for(var j = 0; j < elements.length - 1; j++)for(var k = j + 1; k < elements.length; k++){
+                if (elements[j].key === elements[k].key && elements[j].placement === elements[k].placement) throw new TypeError("Duplicated element (" + elements[j].key + ")");
+            }
+        }
+    }
+    return {
+        elements: elements,
+        finishers: finishers
+    };
+}
+function _fromElementDescriptor(element) {
+    var obj = {
+        kind: element.kind,
+        key: element.key,
+        placement: element.placement,
+        descriptor: element.descriptor
+    };
+    var desc = {
+        value: "Descriptor",
+        configurable: true
+    };
+    Object.defineProperty(obj, Symbol.toStringTag, desc);
+    if (element.kind === "field") obj.initializer = element.initializer;
+    return obj;
+}
+function _toElementDescriptors(elementObjects) {
+    if (elementObjects === undefined) return;
+    return _toArrayDefault.default(elementObjects).map(function(elementObject) {
+        var element = _toElementDescriptor(elementObject);
+        _disallowProperty(elementObject, "finisher", "An element descriptor");
+        _disallowProperty(elementObject, "extras", "An element descriptor");
+        return element;
+    });
+}
+function _toElementDescriptor(elementObject) {
+    var kind = String(elementObject.kind);
+    if (kind !== "method" && kind !== "field") throw new TypeError("An element descriptor's .kind property must be either \"method\" or \"field\", but a decorator created an element descriptor with .kind \"" + kind + '"');
+    var key = _toPropertyKeyDefault.default(elementObject.key);
+    var placement = String(elementObject.placement);
+    if (placement !== "static" && placement !== "prototype" && placement !== "own") throw new TypeError("An element descriptor's .placement property must be one of \"static\", \"prototype\" or \"own\", but a decorator created an element descriptor with .placement \"" + placement + '"');
+    var descriptor = elementObject.descriptor;
+    _disallowProperty(elementObject, "elements", "An element descriptor");
+    var element = {
+        kind: kind,
+        key: key,
+        placement: placement,
+        descriptor: Object.assign({
+        }, descriptor)
+    };
+    if (kind !== "field") _disallowProperty(elementObject, "initializer", "A method descriptor");
+    else {
+        _disallowProperty(descriptor, "get", "The property descriptor of a field descriptor");
+        _disallowProperty(descriptor, "set", "The property descriptor of a field descriptor");
+        _disallowProperty(descriptor, "value", "The property descriptor of a field descriptor");
+        element.initializer = elementObject.initializer;
+    }
+    return element;
+}
+function _toElementFinisherExtras(elementObject) {
+    var element = _toElementDescriptor(elementObject);
+    var finisher = _optionalCallableProperty(elementObject, "finisher");
+    var extras = _toElementDescriptors(elementObject.extras);
+    return {
+        element: element,
+        finisher: finisher,
+        extras: extras
+    };
+}
+function _fromClassDescriptor(elements) {
+    var obj = {
+        kind: "class",
+        elements: elements.map(_fromElementDescriptor)
+    };
+    var desc = {
+        value: "Descriptor",
+        configurable: true
+    };
+    Object.defineProperty(obj, Symbol.toStringTag, desc);
+    return obj;
+}
+function _toClassDescriptor(obj) {
+    var kind = String(obj.kind);
+    if (kind !== "class") throw new TypeError("A class descriptor's .kind property must be \"class\", but a decorator created a class descriptor with .kind \"" + kind + '"');
+    _disallowProperty(obj, "key", "A class descriptor");
+    _disallowProperty(obj, "placement", "A class descriptor");
+    _disallowProperty(obj, "descriptor", "A class descriptor");
+    _disallowProperty(obj, "initializer", "A class descriptor");
+    _disallowProperty(obj, "extras", "A class descriptor");
+    var finisher = _optionalCallableProperty(obj, "finisher");
+    var elements = _toElementDescriptors(obj.elements);
+    return {
+        elements: elements,
+        finisher: finisher
+    };
+}
+function _disallowProperty(obj, name, objectType) {
+    if (obj[name] !== undefined) throw new TypeError(objectType + " can't have a ." + name + " property.");
+}
+function _optionalCallableProperty(obj, name) {
+    var value = obj[name];
+    if (value !== undefined && typeof value !== "function") throw new TypeError("Expected '" + name + "' to be a function");
+    return value;
+}
+function _runClassFinishers(constructor, finishers) {
+    for(var i = 0; i < finishers.length; i++){
+        var newConstructor = finishers[i](constructor);
+        if (newConstructor !== undefined) {
+            if (typeof newConstructor !== "function") throw new TypeError("Finishers must return a constructor.");
+            constructor = newConstructor;
+        }
+    }
+    return constructor;
+}
+
+},{"./_to_array":"2CPtF","./_to_property_key":"hXDcu","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"2CPtF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _arrayWithHoles = require("./_array_with_holes");
+var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
+var _iterableToArray = require("./_iterable_to_array");
+var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
+var _nonIterableRest = require("./_non_iterable_rest");
+var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
+function _toArray(arr) {
+    return _arrayWithHolesDefault.default(arr) || _iterableToArrayDefault.default(arr) || _nonIterableRestDefault.default();
+}
+exports.default = _toArray;
+
+},{"./_array_with_holes":"jK4ol","./_iterable_to_array":"fioPv","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fioPv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _iterableToArray(iter) {
+    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+exports.default = _iterableToArray;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"lBdNT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+exports.default = _nonIterableRest;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hXDcu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _typeOf = require("./_type_of");
+var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
+var _toPrimitive = require("./_to_primitive");
+var _toPrimitiveDefault = parcelHelpers.interopDefault(_toPrimitive);
+function _toPropertyKey(arg) {
+    var key = _toPrimitiveDefault.default(arg, "string");
+    return _typeOfDefault.default(key) === "symbol" ? key : String(key);
+}
+exports.default = _toPropertyKey;
+
+},{"./_type_of":"itxYh","./_to_primitive":"jiiy5","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"itxYh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _typeof(obj) {
+    return obj && obj.constructor === Symbol ? "symbol" : typeof obj;
+}
+exports.default = _typeof;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jiiy5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _typeOf = require("./_type_of");
+var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
+function _toPrimitive(input, hint) {
+    if (_typeOfDefault.default(input) !== "object" || input === null) return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== undefined) {
+        var res = prim.call(input, hint || "default");
+        if (_typeOfDefault.default(res) !== "object") return res;
+        throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+}
+exports.default = _toPrimitive;
+
+},{"./_type_of":"itxYh","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9B1Hi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _defaults(obj, defaults) {
+    var keys = Object.getOwnPropertyNames(defaults);
+    for(var i = 0; i < keys.length; i++){
+        var key = keys[i];
+        var value = Object.getOwnPropertyDescriptor(defaults, key);
+        if (value && value.configurable && obj[key] === undefined) Object.defineProperty(obj, key, value);
+    }
+    return obj;
+}
+exports.default = _defaults;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fLDuq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _defineEnumerableProperties(obj, descs) {
+    for(var key in descs){
+        var desc = descs[key];
+        desc.configurable = desc.enumerable = true;
+        if ("value" in desc) desc.writable = true;
+        Object.defineProperty(obj, key, desc);
+    }
+    if (Object.getOwnPropertySymbols) {
+        var objectSymbols = Object.getOwnPropertySymbols(descs);
+        for(var i = 0; i < objectSymbols.length; i++){
+            var sym = objectSymbols[i];
+            var desc = descs[sym];
+            desc.configurable = desc.enumerable = true;
+            if ("value" in desc) desc.writable = true;
+            Object.defineProperty(obj, sym, desc);
+        }
+    }
+    return obj;
+}
+exports.default = _defineEnumerableProperties;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"66tZd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _defineProperty(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}
+exports.default = _defineProperty;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"emRQr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function extends_() {
+    extends_ = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+        }
+        return target;
+    };
+    return extends_.apply(this, arguments);
+}
+function _extends() {
+    return extends_.apply(this, arguments);
+}
+exports.default = _extends;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"d7rIq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _superPropBase = require("./_super_prop_base");
+var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
+function get(target, property, receiver) {
+    if (typeof Reflect !== "undefined" && Reflect.get) get = Reflect.get;
+    else get = function get1(target1, property1, receiver1) {
+        var base = _superPropBaseDefault.default(target1, property1);
+        if (!base) return;
+        var desc = Object.getOwnPropertyDescriptor(base, property1);
+        if (desc.get) return desc.get.call(receiver1 || target1);
+        return desc.value;
+    };
+    return get(target, property, receiver);
+}
+function _get(target, property, reciever) {
+    return get(target, property, reciever);
+}
+exports.default = _get;
+
+},{"./_super_prop_base":"1Lhsi","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1Lhsi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _getPrototypeOf = require("./_get_prototype_of");
+var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
+function _superPropBase(object, property) {
+    while(!Object.prototype.hasOwnProperty.call(object, property)){
+        object = _getPrototypeOfDefault.default(object);
+        if (object === null) break;
+    }
+    return object;
+}
+exports.default = _superPropBase;
+
+},{"./_get_prototype_of":"9J7rd","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9J7rd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function getPrototypeOf(o) {
+    getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function getPrototypeOf1(o1) {
+        return o1.__proto__ || Object.getPrototypeOf(o1);
+    };
+    return getPrototypeOf(o);
+}
+function _getPrototypeOf(o) {
+    return getPrototypeOf(o);
+}
+exports.default = _getPrototypeOf;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jKzCA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _setPrototypeOf = require("./_set_prototype_of");
+var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+            value: subClass,
+            writable: true,
+            configurable: true
+        }
+    });
+    if (superClass) _setPrototypeOfDefault.default(subClass, superClass);
+}
+exports.default = _inherits;
+
+},{"./_set_prototype_of":"8IYjp","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"8IYjp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function setPrototypeOf(o, p) {
+    setPrototypeOf = Object.setPrototypeOf || function setPrototypeOf1(o1, p1) {
+        o1.__proto__ = p1;
+        return o1;
+    };
+    return setPrototypeOf(o, p);
+}
+function _setPrototypeOf(o, p) {
+    return setPrototypeOf(o, p);
+}
+exports.default = _setPrototypeOf;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"66DaS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+}
+exports.default = _inheritsLoose;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hpAMk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _initializerDefineProperty(target, property, descriptor, context) {
+    if (!descriptor) return;
+    Object.defineProperty(target, property, {
+        enumerable: descriptor.enumerable,
+        configurable: descriptor.configurable,
+        writable: descriptor.writable,
+        value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+    });
+}
+exports.default = _initializerDefineProperty;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4PF1G":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _initializerWarningHelper(descriptor, context) {
+    throw new Error("Decorating class property failed. Please ensure that proposal-class-properties is enabled and set to use loose mode. To use proposal-class-properties in spec mode with decorators, wait for the next major version of decorators in stage 2.");
+}
+exports.default = _initializerWarningHelper;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hcOwE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _instanceof(left, right) {
+    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) return right[Symbol.hasInstance](left);
+    else return left instanceof right;
+}
+exports.default = _instanceof;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"auSRf":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+exports.default = _interopRequireDefault;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"h8y9c":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _interopRequireWildcard(obj) {
+    if (obj && obj.__esModule) return obj;
+    else {
+        var newObj = {
+        };
+        if (obj != null) {
+            for(var key in obj)if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {
+                };
+                if (desc.get || desc.set) Object.defineProperty(newObj, key, desc);
+                else newObj[key] = obj[key];
+            }
+        }
+        newObj.default = obj;
+        return newObj;
+    }
+}
+exports.default = _interopRequireWildcard;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"8u1EX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _isNativeFunction(fn) {
+    return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+exports.default = _isNativeFunction;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"dsUdy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _iterableToArrayLimit(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+    try {
+        for(var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true){
+            _arr.push(_s.value);
+            if (i && _arr.length === i) break;
+        }
+    } catch (err) {
+        _d = true;
+        _e = err;
+    } finally{
+        try {
+            if (!_n && _i["return"] != null) _i["return"]();
+        } finally{
+            if (_d) throw _e;
+        }
+    }
+    return _arr;
+}
+exports.default = _iterableToArrayLimit;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"5HHUm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _iterableToArrayLimitLoose(arr, i) {
+    var _arr = [];
+    for(var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;){
+        _arr.push(_step.value);
+        if (i && _arr.length === i) break;
+    }
+    return _arr;
+}
+exports.default = _iterableToArrayLimitLoose;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4vGAS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var REACT_ELEMENT_TYPE;
+function _createRawReactElement(type, props, key, children) {
+    if (!REACT_ELEMENT_TYPE) REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 60103;
+    var defaultProps = type && type.defaultProps;
+    var childrenLength = arguments.length - 3;
+    if (!props && childrenLength !== 0) props = {
+        children: void 0
+    };
+    if (props && defaultProps) {
+        for(var propName in defaultProps)if (props[propName] === void 0) props[propName] = defaultProps[propName];
+    } else if (!props) props = defaultProps || {
+    };
+    if (childrenLength === 1) props.children = children;
+    else if (childrenLength > 1) {
+        var childArray = new Array(childrenLength);
+        for(var i = 0; i < childrenLength; i++)childArray[i] = arguments[i + 3];
+        props.children = childArray;
+    }
+    return {
+        $$typeof: REACT_ELEMENT_TYPE,
+        type: type,
+        key: key === undefined ? null : '' + key,
+        ref: null,
+        props: props,
+        _owner: null
+    };
+}
+exports.default = _createRawReactElement;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4pxHK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _newArrowCheck(innerThis, boundThis) {
+    if (innerThis !== boundThis) throw new TypeError("Cannot instantiate an arrow function");
+}
+exports.default = _newArrowCheck;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"lQAYF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+exports.default = _nonIterableSpread;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"a4gFb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _defineProperty = require("./_define_property");
+var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
+function _objectSpread(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i] != null ? arguments[i] : {
+        };
+        var ownKeys = Object.keys(source);
+        if (typeof Object.getOwnPropertySymbols === 'function') ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        }));
+        ownKeys.forEach(function(key) {
+            _definePropertyDefault.default(target, key, source[key]);
+        });
+    }
+    return target;
+}
+exports.default = _objectSpread;
+
+},{"./_define_property":"66tZd","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"ioY4X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _objectWithoutPropertiesLoose = require("./_object_without_properties_loose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+function _objectWithoutProperties(source, excluded) {
+    if (source == null) return {
+    };
+    var target = _objectWithoutPropertiesLooseDefault.default(source, excluded);
+    var key, i;
+    if (Object.getOwnPropertySymbols) {
+        var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+        for(i = 0; i < sourceSymbolKeys.length; i++){
+            key = sourceSymbolKeys[i];
+            if (excluded.indexOf(key) >= 0) continue;
+            if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+            target[key] = source[key];
+        }
+    }
+    return target;
+}
+exports.default = _objectWithoutProperties;
+
+},{"./_object_without_properties_loose":"jj0GB","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jj0GB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {
+    };
+    var target = {
+    };
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for(i = 0; i < sourceKeys.length; i++){
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+    }
+    return target;
+}
+exports.default = _objectWithoutPropertiesLoose;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"dikHJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _assertThisInitialized = require("./_assert_this_initialized");
+var _assertThisInitializedDefault = parcelHelpers.interopDefault(_assertThisInitialized);
+var _typeOf = require("./_type_of");
+var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
+function _possibleConstructorReturn(self, call) {
+    if (call && (_typeOfDefault.default(call) === "object" || typeof call === "function")) return call;
+    return _assertThisInitializedDefault.default(self);
+}
+exports.default = _possibleConstructorReturn;
+
+},{"./_assert_this_initialized":"9ttHL","./_type_of":"itxYh","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9J5B3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _readOnlyError(name) {
+    throw new Error("\"" + name + "\" is read-only");
+}
+exports.default = _readOnlyError;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jUH2n":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _defineProperty = require("./_define_property");
+var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
+var _superPropBase = require("./_super_prop_base");
+var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
+function set(target, property, value, receiver) {
+    if (typeof Reflect !== "undefined" && Reflect.set) set = Reflect.set;
+    else set = function set1(target1, property1, value1, receiver1) {
+        var base = _superPropBaseDefault.default(target1, property1);
+        var desc;
+        if (base) {
+            desc = Object.getOwnPropertyDescriptor(base, property1);
+            if (desc.set) {
+                desc.set.call(receiver1, value1);
+                return true;
+            } else if (!desc.writable) return false;
+        }
+        desc = Object.getOwnPropertyDescriptor(receiver1, property1);
+        if (desc) {
+            if (!desc.writable) return false;
+            desc.value = value1;
+            Object.defineProperty(receiver1, property1, desc);
+        } else _definePropertyDefault.default(receiver1, property1, value1);
+        return true;
+    };
+    return set(target, property, value, receiver);
+}
+function _set(target, property, value, receiver, isStrict) {
+    var s = set(target, property, value, receiver || target);
+    if (!s && isStrict) throw new Error('failed to set property');
+    return value;
+}
+exports.default = _set;
+
+},{"./_define_property":"66tZd","./_super_prop_base":"1Lhsi","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1QKVU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _skipFirstGeneratorNext(fn) {
+    return function() {
+        var it = fn.apply(this, arguments);
+        it.next();
+        return it;
+    };
+}
+exports.default = _skipFirstGeneratorNext;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"c4bqb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _arrayWithHoles = require("./_array_with_holes");
+var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
+var _iterableToArray = require("./_iterable_to_array");
+var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
+var _nonIterableRest = require("./_non_iterable_rest");
+var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
+function _slicedToArray(arr, i) {
+    return _arrayWithHolesDefault.default(arr) || _iterableToArrayDefault.default(arr, i) || _nonIterableRestDefault.default();
+}
+exports.default = _slicedToArray;
+
+},{"./_array_with_holes":"jK4ol","./_iterable_to_array":"fioPv","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"6BenR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _arrayWithHoles = require("./_array_with_holes");
+var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
+var _iterableToArrayLimitLoose = require("./_iterable_to_array_limit_loose");
+var _iterableToArrayLimitLooseDefault = parcelHelpers.interopDefault(_iterableToArrayLimitLoose);
+var _nonIterableRest = require("./_non_iterable_rest");
+var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
+function _slicedToArrayLoose(arr, i) {
+    return _arrayWithHolesDefault.default(arr) || _iterableToArrayLimitLooseDefault.default(arr, i) || _nonIterableRestDefault.default();
+}
+exports.default = _slicedToArrayLoose;
+
+},{"./_array_with_holes":"jK4ol","./_iterable_to_array_limit_loose":"5HHUm","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"0zKhv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _taggedTemplateLiteral(strings, raw) {
+    if (!raw) raw = strings.slice(0);
+    return Object.freeze(Object.defineProperties(strings, {
+        raw: {
+            value: Object.freeze(raw)
+        }
+    }));
+}
+exports.default = _taggedTemplateLiteral;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"cjiAi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _taggedTemplateLiteralLoose(strings, raw) {
+    if (!raw) raw = strings.slice(0);
+    strings.raw = raw;
+    return strings;
+}
+exports.default = _taggedTemplateLiteralLoose;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"5CpWw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _throw(e) {
+    throw e;
+}
+exports.default = _throw;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"7TGZW":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _arrayWithoutHoles = require("./_array_without_holes");
+var _arrayWithoutHolesDefault = parcelHelpers.interopDefault(_arrayWithoutHoles);
+var _iterableToArray = require("./_iterable_to_array");
+var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
+var _nonIterableSpread = require("./_non_iterable_spread");
+var _nonIterableSpreadDefault = parcelHelpers.interopDefault(_nonIterableSpread);
+function _toConsumableArray(arr) {
+    return _arrayWithoutHolesDefault.default(arr) || _iterableToArrayDefault.default(arr) || _nonIterableSpreadDefault.default();
+}
+exports.default = _toConsumableArray;
+
+},{"./_array_without_holes":"4xW5O","./_iterable_to_array":"fioPv","./_non_iterable_spread":"lQAYF","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"02Kif":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _asyncGenerator = require("./_async_generator");
+var _asyncGeneratorDefault = parcelHelpers.interopDefault(_asyncGenerator);
+function _wrapAsyncGenerator(fn) {
+    return function() {
+        return new _asyncGeneratorDefault.default(fn.apply(this, arguments));
+    };
+}
+exports.default = _wrapAsyncGenerator;
+
+},{"./_async_generator":"c1Fxn","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"70RJm":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _construct = require("./_construct");
+var _constructDefault = parcelHelpers.interopDefault(_construct);
+var _isNativeFunction = require("./_is_native_function");
+var _isNativeFunctionDefault = parcelHelpers.interopDefault(_isNativeFunction);
+var _getPrototypeOf = require("./_get_prototype_of");
+var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
+var _setPrototypeOf = require("./_set_prototype_of");
+var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
+function wrapNativeSuper(Class) {
+    var _cache = typeof Map === "function" ? new Map() : undefined;
+    wrapNativeSuper = function wrapNativeSuper1(Class1) {
+        if (Class1 === null || !_isNativeFunctionDefault.default(Class1)) return Class1;
+        if (typeof Class1 !== "function") throw new TypeError("Super expression must either be null or a function");
+        if (typeof _cache !== "undefined") {
+            if (_cache.has(Class1)) return _cache.get(Class1);
+            _cache.set(Class1, Wrapper);
+        }
+        function Wrapper() {
+            return _constructDefault.default(Class1, arguments, _getPrototypeOfDefault.default(this).constructor);
+        }
+        Wrapper.prototype = Object.create(Class1.prototype, {
+            constructor: {
+                value: Wrapper,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        return _setPrototypeOfDefault.default(Wrapper, Class1);
+    };
+    return wrapNativeSuper(Class);
+}
+function _wrapNativeSuper(Class) {
+    return wrapNativeSuper(Class);
+}
+exports.default = _wrapNativeSuper;
+
+},{"./_construct":"1JSGS","./_is_native_function":"8u1EX","./_get_prototype_of":"9J7rd","./_set_prototype_of":"8IYjp","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jVs2M":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _isNativeReflectConstruct = require("./_is_native_reflect_construct");
+var _isNativeReflectConstructDefault = parcelHelpers.interopDefault(_isNativeReflectConstruct);
+var _getPrototypeOf = require("./_get_prototype_of");
+var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
+var _possibleConstructorReturn = require("./_possible_constructor_return");
+var _possibleConstructorReturnDefault = parcelHelpers.interopDefault(_possibleConstructorReturn);
+function _createSuper(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstructDefault.default();
+    return function _createSuperInternal() {
+        var Super = _getPrototypeOfDefault.default(Derived), result;
+        if (hasNativeReflectConstruct) {
+            var NewTarget = _getPrototypeOfDefault.default(this).constructor;
+            result = Reflect.construct(Super, arguments, NewTarget);
+        } else result = Super.apply(this, arguments);
+        return _possibleConstructorReturnDefault.default(this, result);
+    };
+}
+exports.default = _createSuper;
+
+},{"./_is_native_reflect_construct":"9acFY","./_get_prototype_of":"9J7rd","./_possible_constructor_return":"dikHJ","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9acFY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+    try {
+        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
+        }));
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+exports.default = _isNativeReflectConstruct;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -25791,37 +27480,7 @@ function _extends() {
 }
 exports.default = _extends;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fYYWv":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"btA8E":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"btA8E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "NavigationType", ()=>_history.Action
@@ -39490,259 +41149,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"e0UXK"}],"3U8r7":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$789c.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactBootstrap = require("react-bootstrap");
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _registrationViewScss = require("./registration-view.scss");
-var _s = $RefreshSig$();
-function RegistrationView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthday] = _react.useState('');
-    // Declare hook for each input
-    const [usernameErr, setUsernameErr] = _react.useState('');
-    const [passwordErr, setPasswordErr] = _react.useState('');
-    const [emailErr, setEmailErr] = _react.useState('');
-    // validate user inputs
-    const validate = ()=>{
-        let isReq = true;
-        if (!username) {
-            setUsernameErr('Username required');
-            isReq = false;
-        } else if (username.length < 2) {
-            setUsernameErr('Username must be at least 2 characters long');
-            isReq = false;
-        }
-        if (!password) {
-            setPasswordErr('Password required');
-            isReq = false;
-        } else if (password.length < 6) {
-            setPassword('Password must be at least 6 characters long');
-            isReq = false;
-        }
-        if (!email) {
-            setEmailErr('Email required');
-            isReq = false;
-        } else if (email.indexOf('@') === -1) {
-            setEmail('Email must be valid');
-            isReq = false;
-        }
-        return isReq;
-    };
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        const isReq = validate();
-        if (isReq) _axiosDefault.default.post(`https://studioghiblidb.herokuapp.com/users`, {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        }).then((response)=>{
-            const data = response.data;
-            console.log(data);
-            alert('Registration Successful!');
-            window.open('/', '_self');
-        }).catch(function(error) {
-            console.log('error registering');
-        });
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-        __source: {
-            fileName: "src/components/registration-view/registration-view.jsx",
-            lineNumber: 70
-        },
-        __self: this,
-        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-            __source: {
-                fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 71
-            },
-            __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 72
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
-                    __source: {
-                        fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 73
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 74
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 75
-                                    },
-                                    __self: this,
-                                    children: "Username:"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                    type: "text",
-                                    value: username,
-                                    placeholder: "Enter a username",
-                                    onChange: (e)=>setUsername(e.target.value)
-                                    ,
-                                    required: true,
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 76
-                                    },
-                                    __self: this
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 78
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 79
-                                    },
-                                    __self: this,
-                                    children: "Password:"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                    input: true,
-                                    type: "password",
-                                    value: password,
-                                    placeholder: "Your password must be 8 or more characters",
-                                    onChange: (e)=>setPassword(e.target.value)
-                                    ,
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 80
-                                    },
-                                    __self: this
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 82
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 83
-                                    },
-                                    __self: this,
-                                    children: "Email:"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                    type: "email",
-                                    value: email,
-                                    placeholder: "Enter an email address",
-                                    onChange: (e)=>setEmail(e.target.value)
-                                    ,
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 84
-                                    },
-                                    __self: this
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 86
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 87
-                                    },
-                                    __self: this,
-                                    children: "Birthday:"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                    type: "birthday",
-                                    value: birthday,
-                                    onChange: (e)=>setBirthday(e.target.value)
-                                    ,
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 88
-                                    },
-                                    __self: this
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                            variant: "success",
-                            type: "submit",
-                            onClick: handleSubmit,
-                            __source: {
-                                fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 90
-                            },
-                            __self: this,
-                            children: "Register"
-                        })
-                    ]
-                })
-            })
-        })
-    }));
-}
-_s(RegistrationView, "QUi2juxU45Gnl9b7MHmQyhbVt1k=");
-_c = RegistrationView;
-RegistrationView.propTypes = {
-    user: _propTypesDefault.default.shape({
-        Username: _propTypesDefault.default.string.isRequired,
-        Password: _propTypesDefault.default.string.isRequired,
-        Email: _propTypesDefault.default.string.isRequired,
-        Birthday: _propTypesDefault.default.string.isRequired
-    }),
-    onRegistration: _propTypesDefault.default.func
-};
-var _c;
-$RefreshReg$(_c, "RegistrationView");
-
-  $parcel$ReactRefreshHelpers$789c.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","axios":"jo6P5","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"clIxH":[function() {},{}],"bwuIu":[function(require,module,exports) {
+},{"react-refresh/runtime":"e0UXK"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -39868,176 +41275,141 @@ var _reactRouterDom = require("react-router-dom");
 class MovieView extends _reactDefault.default.Component {
     render() {
         const { movie  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 14
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 15
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 15
+                        lineNumber: 16
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
-                        expand: "xxlg",
-                        bg: "dark",
-                        variant: "dark",
-                        className: "justify-content-md-center",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+                            className: "movie-view",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
                                 lineNumber: 17
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
+                            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 18
                                 },
                                 __self: this,
-                                children: " Studio Ghibli "
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
+                                        className: "movie-poster",
+                                        src: movie.ImagePath,
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 19
+                                        },
+                                        __self: this
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
+                                        className: "movie-title",
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 20
+                                        },
+                                        __self: this,
+                                        children: movie.Title
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Text, {
+                                        className: "movie-description",
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 21
+                                        },
+                                        __self: this,
+                                        children: movie.Description
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
+                                        className: "movie-director",
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 22
+                                        },
+                                        __self: this,
+                                        children: [
+                                            " Director: ",
+                                            movie.Director.Name
+                                        ]
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
+                                        className: "movie-genre",
+                                        __source: {
+                                            fileName: "src/components/movie-view/movie-view.jsx",
+                                            lineNumber: 23
+                                        },
+                                        __self: this,
+                                        children: [
+                                            " Genre: ",
+                                            movie.Genre.Name
+                                        ]
+                                    })
+                                ]
                             })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                            to: `/directors/${movie.Director.Name}`,
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 26
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                variant: "link",
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 27
+                                },
+                                __self: this,
+                                children: "Director"
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                            to: `/genre/${movie.Genre.Name}`,
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 29
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                variant: "link",
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 30
+                                },
+                                __self: this,
+                                children: "Genre"
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            onClick: ()=>{
+                                window.location.replace("/");
+                            },
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 32
+                            },
+                            __self: this,
+                            children: "Return to Movies"
                         })
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 22
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 23
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
-                                className: "movie-view",
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 24
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 25
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
-                                            className: "movie-poster",
-                                            src: movie.ImagePath,
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 26
-                                            },
-                                            __self: this
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
-                                            className: "movie-title",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 27
-                                            },
-                                            __self: this,
-                                            children: movie.Title
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Text, {
-                                            className: "movie-description",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 28
-                                            },
-                                            __self: this,
-                                            children: movie.Description
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                                            className: "movie-director",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 29
-                                            },
-                                            __self: this,
-                                            children: [
-                                                " Director: ",
-                                                movie.Director.Name
-                                            ]
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                                            className: "movie-genre",
-                                            __source: {
-                                                fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 30
-                                            },
-                                            __self: this,
-                                            children: [
-                                                " Genre: ",
-                                                movie.Genre.Name
-                                            ]
-                                        })
-                                    ]
-                                })
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: `/directors/${movie.Director.Name}`,
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 33
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                    variant: "link",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 34
-                                    },
-                                    __self: this,
-                                    children: "Director"
-                                })
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: `/genre/${movie.Genre.Name}`,
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 36
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                    variant: "link",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 37
-                                    },
-                                    __self: this,
-                                    children: "Genre"
-                                })
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                onClick: ()=>{
-                                    window.location.replace("/");
-                                },
-                                __source: {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 39
-                                },
-                                __self: this,
-                                children: "Return to Movies"
-                            })
-                        ]
-                    })
+                    ]
                 })
-            ]
+            })
         }));
     }
 }
@@ -40065,7 +41437,7 @@ MovieView.proptypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","../movie-view/movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI","react-router-dom":"fdOAw"}],"jnlR5":[function() {},{}],"4tuA0":[function(require,module,exports) {
+},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","../movie-view/movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"jnlR5":[function() {},{}],"4tuA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$377f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40169,7 +41541,147 @@ GenreView.proptypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","react-bootstrap/":"3AD9A","./genre-view.scss":"bk3gk","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"bk3gk":[function() {},{}],"eBaMl":[function() {},{}],"2vVqf":[function(require,module,exports) {
+},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","react-bootstrap/":"3AD9A","./genre-view.scss":"bk3gk","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"bk3gk":[function() {},{}],"9tpci":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ad4a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+// Import React Bootstrap Components
+var _ = require("react-bootstrap/");
+// Import custom SCSS
+var _directorViewScss = require("./director-view.scss");
+class DirectorView extends _reactDefault.default.Component {
+    render() {
+        console.log(this.props);
+        const { Director , movies  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            __source: {
+                fileName: "src/components/director-view/director-view.jsx",
+                lineNumber: 15
+            },
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_.Container, {
+                __source: {
+                    fileName: "src/components/director-view/director-view.jsx",
+                    lineNumber: 16
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_.Card, {
+                    className: "director-card",
+                    __source: {
+                        fileName: "src/components/director-view/director-view.jsx",
+                        lineNumber: 18
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_.Card.Header, {
+                            __source: {
+                                fileName: "src/components/director-view/director-view.jsx",
+                                lineNumber: 19
+                            },
+                            __self: this,
+                            children: "Director"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Body, {
+                            __source: {
+                                fileName: "src/components/director-view/director-view.jsx",
+                                lineNumber: 20
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Title, {
+                                    className: "director-card-title",
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 21
+                                    },
+                                    __self: this,
+                                    children: [
+                                        " ",
+                                        Director.Name
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
+                                    className: "director-card-text",
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 22
+                                    },
+                                    __self: this,
+                                    children: [
+                                        "Birth: ",
+                                        Director.Birth
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
+                                    className: "director-card-text",
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 23
+                                    },
+                                    __self: this,
+                                    children: [
+                                        "Death: ",
+                                        Director.Death
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
+                                    className: "director-card-text",
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 24
+                                    },
+                                    __self: this,
+                                    children: [
+                                        " ",
+                                        Director.Bio
+                                    ]
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_.Card.Footer, {
+                                    className: "director-card-footer",
+                                    __source: {
+                                        fileName: "src/components/director-view/director-view.jsx",
+                                        lineNumber: 25
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_.Button, {
+                                        onClick: ()=>{
+                                            window.location.replace("/");
+                                        },
+                                        __source: {
+                                            fileName: "src/components/director-view/director-view.jsx",
+                                            lineNumber: 26
+                                        },
+                                        __self: this,
+                                        children: " Back "
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                })
+            })
+        }));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$ad4a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","react-bootstrap/":"3AD9A","./director-view.scss":"cVy0f","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"cVy0f":[function() {},{}],"2vVqf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3c12 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40782,1782 +42294,364 @@ class ProfileView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","axios":"jo6P5","prop-types":"7wKI2","react-router-dom":"fdOAw","react-bootstrap/":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI","./profile-view.scss":"eyKYH","@swc/helpers":"9Dm3z","react/jsx-runtime":"6AEwr"}],"eyKYH":[function() {},{}],"9Dm3z":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "applyDecoratedDescriptor", ()=>_applyDecoratedDescriptorDefault.default
-);
-parcelHelpers.export(exports, "arrayWithHoles", ()=>_arrayWithHolesDefault.default
-);
-parcelHelpers.export(exports, "arrayWithoutHoles", ()=>_arrayWithoutHolesDefault.default
-);
-parcelHelpers.export(exports, "assertThisInitialized", ()=>_assertThisInitializedDefault.default
-);
-parcelHelpers.export(exports, "asyncGenerator", ()=>_asyncGeneratorDefault.default
-);
-parcelHelpers.export(exports, "asyncGeneratorDelegate", ()=>_asyncGeneratorDelegateDefault.default
-);
-parcelHelpers.export(exports, "asyncIterator", ()=>_asyncIteratorDefault.default
-);
-parcelHelpers.export(exports, "asyncToGenerator", ()=>_asyncToGeneratorDefault.default
-);
-parcelHelpers.export(exports, "awaitAsyncGenerator", ()=>_awaitAsyncGeneratorDefault.default
-);
-parcelHelpers.export(exports, "awaitValue", ()=>_awaitValueDefault.default
-);
-parcelHelpers.export(exports, "classCallCheck", ()=>_classCallCheckDefault.default
-);
-parcelHelpers.export(exports, "classNameTDZError", ()=>_classNameTdzErrorDefault.default
-);
-parcelHelpers.export(exports, "classPrivateFieldGet", ()=>_classPrivateFieldGetDefault.default
-);
-parcelHelpers.export(exports, "classPrivateFieldLooseBase", ()=>_classPrivateFieldLooseBaseDefault.default
-);
-parcelHelpers.export(exports, "classPrivateFieldSet", ()=>_classPrivateFieldSetDefault.default
-);
-parcelHelpers.export(exports, "classPrivateMethodGet", ()=>_classPrivateMethodGetDefault.default
-);
-parcelHelpers.export(exports, "classPrivateMethodSet", ()=>_classPrivateMethodSetDefault.default
-);
-parcelHelpers.export(exports, "classStaticPrivateFieldSpecGet", ()=>_classStaticPrivateFieldSpecGetDefault.default
-);
-parcelHelpers.export(exports, "classStaticPrivateFieldSpecSet", ()=>_classStaticPrivateFieldSpecSetDefault.default
-);
-parcelHelpers.export(exports, "construct", ()=>_constructDefault.default
-);
-parcelHelpers.export(exports, "createClass", ()=>_createClassDefault.default
-);
-parcelHelpers.export(exports, "decorate", ()=>_decorateDefault.default
-);
-parcelHelpers.export(exports, "defaults", ()=>_defaultsDefault.default
-);
-parcelHelpers.export(exports, "defineEnumerableProperties", ()=>_defineEnumerablePropertiesDefault.default
-);
-parcelHelpers.export(exports, "defineProperty", ()=>_definePropertyDefault.default
-);
-parcelHelpers.export(exports, "extends", ()=>_extendsDefault.default
-);
-parcelHelpers.export(exports, "get", ()=>_getDefault.default
-);
-parcelHelpers.export(exports, "getPrototypeOf", ()=>_getPrototypeOfDefault.default
-);
-parcelHelpers.export(exports, "inherits", ()=>_inheritsDefault.default
-);
-parcelHelpers.export(exports, "inheritsLoose", ()=>_inheritsLooseDefault.default
-);
-parcelHelpers.export(exports, "initializerDefineProperty", ()=>_initializerDefinePropertyDefault.default
-);
-parcelHelpers.export(exports, "initializerWarningHelper", ()=>_initializerWarningHelperDefault.default
-);
-parcelHelpers.export(exports, "_instanceof", ()=>_instanceofDefault.default
-);
-parcelHelpers.export(exports, "interopRequireDefault", ()=>_interopRequireDefaultDefault.default
-);
-parcelHelpers.export(exports, "interopRequireWildcard", ()=>_interopRequireWildcardDefault.default
-);
-parcelHelpers.export(exports, "isNativeFunction", ()=>_isNativeFunctionDefault.default
-);
-parcelHelpers.export(exports, "iterableToArray", ()=>_iterableToArrayDefault.default
-);
-parcelHelpers.export(exports, "iterableToArrayLimit", ()=>_iterableToArrayLimitDefault.default
-);
-parcelHelpers.export(exports, "iterableToArrayLimitLoose", ()=>_iterableToArrayLimitLooseDefault.default
-);
-parcelHelpers.export(exports, "jsx", ()=>_jsxDefault.default
-);
-parcelHelpers.export(exports, "newArrowCheck", ()=>_newArrowCheckDefault.default
-);
-parcelHelpers.export(exports, "nonIterableRest", ()=>_nonIterableRestDefault.default
-);
-parcelHelpers.export(exports, "nonIterableSpread", ()=>_nonIterableSpreadDefault.default
-);
-parcelHelpers.export(exports, "objectSpread", ()=>_objectSpreadDefault.default
-);
-parcelHelpers.export(exports, "objectWithoutProperties", ()=>_objectWithoutPropertiesDefault.default
-);
-parcelHelpers.export(exports, "objectWithoutPropertiesLoose", ()=>_objectWithoutPropertiesLooseDefault.default
-);
-parcelHelpers.export(exports, "possibleConstructorReturn", ()=>_possibleConstructorReturnDefault.default
-);
-parcelHelpers.export(exports, "readOnlyError", ()=>_readOnlyErrorDefault.default
-);
-parcelHelpers.export(exports, "set", ()=>_setDefault.default
-);
-parcelHelpers.export(exports, "setPrototypeOf", ()=>_setPrototypeOfDefault.default
-);
-parcelHelpers.export(exports, "skipFirstGeneratorNext", ()=>_skipFirstGeneratorNextDefault.default
-);
-parcelHelpers.export(exports, "slicedToArray", ()=>_slicedToArrayDefault.default
-);
-parcelHelpers.export(exports, "slicedToArrayLoose", ()=>_slicedToArrayLooseDefault.default
-);
-parcelHelpers.export(exports, "superPropBase", ()=>_superPropBaseDefault.default
-);
-parcelHelpers.export(exports, "taggedTemplateLiteral", ()=>_taggedTemplateLiteralDefault.default
-);
-parcelHelpers.export(exports, "taggedTemplateLiteralLoose", ()=>_taggedTemplateLiteralLooseDefault.default
-);
-parcelHelpers.export(exports, "_throw", ()=>_throwDefault.default
-);
-parcelHelpers.export(exports, "toArray", ()=>_toArrayDefault.default
-);
-parcelHelpers.export(exports, "toConsumableArray", ()=>_toConsumableArrayDefault.default
-);
-parcelHelpers.export(exports, "toPrimitive", ()=>_toPrimitiveDefault.default
-);
-parcelHelpers.export(exports, "toPropertyKey", ()=>_toPropertyKeyDefault.default
-);
-parcelHelpers.export(exports, "typeOf", ()=>_typeOfDefault.default
-);
-parcelHelpers.export(exports, "wrapAsyncGenerator", ()=>_wrapAsyncGeneratorDefault.default
-);
-parcelHelpers.export(exports, "wrapNativeSuper", ()=>_wrapNativeSuperDefault.default
-);
-parcelHelpers.export(exports, "createSuper", ()=>_createSuperDefault.default
-);
-parcelHelpers.export(exports, "isNativeReflectConstruct", ()=>_isNativeReflectConstructDefault.default
-);
-var _applyDecoratedDescriptor = require("./_apply_decorated_descriptor");
-var _applyDecoratedDescriptorDefault = parcelHelpers.interopDefault(_applyDecoratedDescriptor);
-var _arrayWithHoles = require("./_array_with_holes");
-var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
-var _arrayWithoutHoles = require("./_array_without_holes");
-var _arrayWithoutHolesDefault = parcelHelpers.interopDefault(_arrayWithoutHoles);
-var _assertThisInitialized = require("./_assert_this_initialized");
-var _assertThisInitializedDefault = parcelHelpers.interopDefault(_assertThisInitialized);
-var _asyncGenerator = require("./_async_generator");
-var _asyncGeneratorDefault = parcelHelpers.interopDefault(_asyncGenerator);
-var _asyncGeneratorDelegate = require("./_async_generator_delegate");
-var _asyncGeneratorDelegateDefault = parcelHelpers.interopDefault(_asyncGeneratorDelegate);
-var _asyncIterator = require("./_async_iterator");
-var _asyncIteratorDefault = parcelHelpers.interopDefault(_asyncIterator);
-var _asyncToGenerator = require("./_async_to_generator");
-var _asyncToGeneratorDefault = parcelHelpers.interopDefault(_asyncToGenerator);
-var _awaitAsyncGenerator = require("./_await_async_generator");
-var _awaitAsyncGeneratorDefault = parcelHelpers.interopDefault(_awaitAsyncGenerator);
-var _awaitValue = require("./_await_value");
-var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
-var _classCallCheck = require("./_class_call_check");
-var _classCallCheckDefault = parcelHelpers.interopDefault(_classCallCheck);
-var _classNameTdzError = require("./_class_name_tdz_error");
-var _classNameTdzErrorDefault = parcelHelpers.interopDefault(_classNameTdzError);
-var _classPrivateFieldGet = require("./_class_private_field_get");
-var _classPrivateFieldGetDefault = parcelHelpers.interopDefault(_classPrivateFieldGet);
-var _classPrivateFieldLooseBase = require("./_class_private_field_loose_base");
-var _classPrivateFieldLooseBaseDefault = parcelHelpers.interopDefault(_classPrivateFieldLooseBase);
-var _classPrivateFieldSet = require("./_class_private_field_set");
-var _classPrivateFieldSetDefault = parcelHelpers.interopDefault(_classPrivateFieldSet);
-var _classPrivateMethodGet = require("./_class_private_method_get");
-var _classPrivateMethodGetDefault = parcelHelpers.interopDefault(_classPrivateMethodGet);
-var _classPrivateMethodSet = require("./_class_private_method_set");
-var _classPrivateMethodSetDefault = parcelHelpers.interopDefault(_classPrivateMethodSet);
-var _classStaticPrivateFieldSpecGet = require("./_class_static_private_field_spec_get");
-var _classStaticPrivateFieldSpecGetDefault = parcelHelpers.interopDefault(_classStaticPrivateFieldSpecGet);
-var _classStaticPrivateFieldSpecSet = require("./_class_static_private_field_spec_set");
-var _classStaticPrivateFieldSpecSetDefault = parcelHelpers.interopDefault(_classStaticPrivateFieldSpecSet);
-var _construct = require("./_construct");
-var _constructDefault = parcelHelpers.interopDefault(_construct);
-var _createClass = require("./_create_class");
-var _createClassDefault = parcelHelpers.interopDefault(_createClass);
-var _decorate = require("./_decorate");
-var _decorateDefault = parcelHelpers.interopDefault(_decorate);
-var _defaults = require("./_defaults");
-var _defaultsDefault = parcelHelpers.interopDefault(_defaults);
-var _defineEnumerableProperties = require("./_define_enumerable_properties");
-var _defineEnumerablePropertiesDefault = parcelHelpers.interopDefault(_defineEnumerableProperties);
-var _defineProperty = require("./_define_property");
-var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
-var _extends = require("./_extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _get = require("./_get");
-var _getDefault = parcelHelpers.interopDefault(_get);
-var _getPrototypeOf = require("./_get_prototype_of");
-var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
-var _inherits = require("./_inherits");
-var _inheritsDefault = parcelHelpers.interopDefault(_inherits);
-var _inheritsLoose = require("./_inherits_loose");
-var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
-var _initializerDefineProperty = require("./_initializer_define_property");
-var _initializerDefinePropertyDefault = parcelHelpers.interopDefault(_initializerDefineProperty);
-var _initializerWarningHelper = require("./_initializer_warning_helper");
-var _initializerWarningHelperDefault = parcelHelpers.interopDefault(_initializerWarningHelper);
-var _instanceof = require("./_instanceof");
-var _instanceofDefault = parcelHelpers.interopDefault(_instanceof);
-var _interopRequireDefault = require("./_interop_require_default");
-var _interopRequireDefaultDefault = parcelHelpers.interopDefault(_interopRequireDefault);
-var _interopRequireWildcard = require("./_interop_require_wildcard");
-var _interopRequireWildcardDefault = parcelHelpers.interopDefault(_interopRequireWildcard);
-var _isNativeFunction = require("./_is_native_function");
-var _isNativeFunctionDefault = parcelHelpers.interopDefault(_isNativeFunction);
-var _iterableToArray = require("./_iterable_to_array");
-var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
-var _iterableToArrayLimit = require("./_iterable_to_array_limit");
-var _iterableToArrayLimitDefault = parcelHelpers.interopDefault(_iterableToArrayLimit);
-var _iterableToArrayLimitLoose = require("./_iterable_to_array_limit_loose");
-var _iterableToArrayLimitLooseDefault = parcelHelpers.interopDefault(_iterableToArrayLimitLoose);
-var _jsx = require("./_jsx");
-var _jsxDefault = parcelHelpers.interopDefault(_jsx);
-var _newArrowCheck = require("./_new_arrow_check");
-var _newArrowCheckDefault = parcelHelpers.interopDefault(_newArrowCheck);
-var _nonIterableRest = require("./_non_iterable_rest");
-var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
-var _nonIterableSpread = require("./_non_iterable_spread");
-var _nonIterableSpreadDefault = parcelHelpers.interopDefault(_nonIterableSpread);
-var _objectSpread = require("./_object_spread");
-var _objectSpreadDefault = parcelHelpers.interopDefault(_objectSpread);
-var _objectWithoutProperties = require("./_object_without_properties");
-var _objectWithoutPropertiesDefault = parcelHelpers.interopDefault(_objectWithoutProperties);
-var _objectWithoutPropertiesLoose = require("./_object_without_properties_loose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _possibleConstructorReturn = require("./_possible_constructor_return");
-var _possibleConstructorReturnDefault = parcelHelpers.interopDefault(_possibleConstructorReturn);
-var _readOnlyError = require("./_read_only_error");
-var _readOnlyErrorDefault = parcelHelpers.interopDefault(_readOnlyError);
-var _set = require("./_set");
-var _setDefault = parcelHelpers.interopDefault(_set);
-var _setPrototypeOf = require("./_set_prototype_of");
-var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
-var _skipFirstGeneratorNext = require("./_skip_first_generator_next");
-var _skipFirstGeneratorNextDefault = parcelHelpers.interopDefault(_skipFirstGeneratorNext);
-var _slicedToArray = require("./_sliced_to_array");
-var _slicedToArrayDefault = parcelHelpers.interopDefault(_slicedToArray);
-var _slicedToArrayLoose = require("./_sliced_to_array_loose");
-var _slicedToArrayLooseDefault = parcelHelpers.interopDefault(_slicedToArrayLoose);
-var _superPropBase = require("./_super_prop_base");
-var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
-var _taggedTemplateLiteral = require("./_tagged_template_literal");
-var _taggedTemplateLiteralDefault = parcelHelpers.interopDefault(_taggedTemplateLiteral);
-var _taggedTemplateLiteralLoose = require("./_tagged_template_literal_loose");
-var _taggedTemplateLiteralLooseDefault = parcelHelpers.interopDefault(_taggedTemplateLiteralLoose);
-var _throw = require("./_throw");
-var _throwDefault = parcelHelpers.interopDefault(_throw);
-var _toArray = require("./_to_array");
-var _toArrayDefault = parcelHelpers.interopDefault(_toArray);
-var _toConsumableArray = require("./_to_consumable_array");
-var _toConsumableArrayDefault = parcelHelpers.interopDefault(_toConsumableArray);
-var _toPrimitive = require("./_to_primitive");
-var _toPrimitiveDefault = parcelHelpers.interopDefault(_toPrimitive);
-var _toPropertyKey = require("./_to_property_key");
-var _toPropertyKeyDefault = parcelHelpers.interopDefault(_toPropertyKey);
-var _typeOf = require("./_type_of");
-var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
-var _wrapAsyncGenerator = require("./_wrap_async_generator");
-var _wrapAsyncGeneratorDefault = parcelHelpers.interopDefault(_wrapAsyncGenerator);
-var _wrapNativeSuper = require("./_wrap_native_super");
-var _wrapNativeSuperDefault = parcelHelpers.interopDefault(_wrapNativeSuper);
-var _createSuper = require("./_create_super");
-var _createSuperDefault = parcelHelpers.interopDefault(_createSuper);
-var _isNativeReflectConstruct = require("./_is_native_reflect_construct");
-var _isNativeReflectConstructDefault = parcelHelpers.interopDefault(_isNativeReflectConstruct);
-
-},{"./_apply_decorated_descriptor":"6Uxpi","./_array_with_holes":"jK4ol","./_array_without_holes":"4xW5O","./_assert_this_initialized":"9ttHL","./_async_generator":"c1Fxn","./_async_generator_delegate":"g2xDn","./_async_iterator":"i0uoz","./_async_to_generator":"4L1PR","./_await_async_generator":"cJhNR","./_await_value":"61DYg","./_class_call_check":"1lDqY","./_class_name_tdz_error":"fb7ka","./_class_private_field_get":"4JlXL","./_class_private_field_loose_base":"daYYY","./_class_private_field_set":"d7gDM","./_class_private_method_get":"02hMT","./_class_private_method_set":"3sgKu","./_class_static_private_field_spec_get":"aJiy0","./_class_static_private_field_spec_set":"13X0a","./_construct":"1JSGS","./_create_class":"3hIAN","./_decorate":"bBOBc","./_defaults":"9B1Hi","./_define_enumerable_properties":"fLDuq","./_define_property":"66tZd","./_extends":"emRQr","./_get":"d7rIq","./_get_prototype_of":"9J7rd","./_inherits":"jKzCA","./_inherits_loose":"66DaS","./_initializer_define_property":"hpAMk","./_initializer_warning_helper":"4PF1G","./_instanceof":"hcOwE","./_interop_require_default":"auSRf","./_interop_require_wildcard":"h8y9c","./_is_native_function":"8u1EX","./_iterable_to_array":"fioPv","./_iterable_to_array_limit":"dsUdy","./_iterable_to_array_limit_loose":"5HHUm","./_jsx":"4vGAS","./_new_arrow_check":"4pxHK","./_non_iterable_rest":"lBdNT","./_non_iterable_spread":"lQAYF","./_object_spread":"a4gFb","./_object_without_properties":"ioY4X","./_object_without_properties_loose":"jj0GB","./_possible_constructor_return":"dikHJ","./_read_only_error":"9J5B3","./_set":"jUH2n","./_set_prototype_of":"8IYjp","./_skip_first_generator_next":"1QKVU","./_sliced_to_array":"c4bqb","./_sliced_to_array_loose":"6BenR","./_super_prop_base":"1Lhsi","./_tagged_template_literal":"0zKhv","./_tagged_template_literal_loose":"cjiAi","./_throw":"5CpWw","./_to_array":"2CPtF","./_to_consumable_array":"7TGZW","./_to_primitive":"jiiy5","./_to_property_key":"hXDcu","./_type_of":"itxYh","./_wrap_async_generator":"02Kif","./_wrap_native_super":"70RJm","./_create_super":"jVs2M","./_is_native_reflect_construct":"9acFY","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"6Uxpi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-    var desc = {
-    };
-    Object["keys"](descriptor).forEach(function(key) {
-        desc[key] = descriptor[key];
-    });
-    desc.enumerable = !!desc.enumerable;
-    desc.configurable = !!desc.configurable;
-    if ('value' in desc || desc.initializer) desc.writable = true;
-    desc = decorators.slice().reverse().reduce(function(desc1, decorator) {
-        return decorator ? decorator(target, property, desc1) || desc1 : desc1;
-    }, desc);
-    if (context && desc.initializer !== void 0) {
-        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-        desc.initializer = undefined;
-    }
-    if (desc.initializer === void 0) {
-        Object["defineProperty"](target, property, desc);
-        desc = null;
-    }
-    return desc;
-}
-exports.default = _applyDecoratedDescriptor;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jK4ol":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-}
-exports.default = _arrayWithHoles;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4xW5O":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-        for(var i = 0, arr2 = new Array(arr.length); i < arr.length; i++)arr2[i] = arr[i];
-        return arr2;
-    }
-}
-exports.default = _arrayWithoutHoles;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9ttHL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _assertThisInitialized(self) {
-    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    return self;
-}
-exports.default = _assertThisInitialized;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"c1Fxn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _awaitValue = require("./_await_value");
-var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
-function AsyncGenerator(gen) {
-    var front, back;
-    function send(key, arg) {
-        return new Promise(function(resolve, reject) {
-            var request = {
-                key: key,
-                arg: arg,
-                resolve: resolve,
-                reject: reject,
-                next: null
-            };
-            if (back) back = back.next = request;
-            else {
-                front = back = request;
-                resume(key, arg);
-            }
-        });
-    }
-    function resume(key, arg) {
-        try {
-            var result = gen[key](arg);
-            var value = result.value;
-            var wrappedAwait = value instanceof _awaitValueDefault.default;
-            Promise.resolve(wrappedAwait ? value.wrapped : value).then(function(arg1) {
-                if (wrappedAwait) {
-                    resume("next", arg1);
-                    return;
-                }
-                settle(result.done ? "return" : "normal", arg1);
-            }, function(err) {
-                resume("throw", err);
-            });
-        } catch (err) {
-            settle("throw", err);
-        }
-    }
-    function settle(type, value) {
-        switch(type){
-            case "return":
-                front.resolve({
-                    value: value,
-                    done: true
-                });
-                break;
-            case "throw":
-                front.reject(value);
-                break;
-            default:
-                front.resolve({
-                    value: value,
-                    done: false
-                });
-                break;
-        }
-        front = front.next;
-        if (front) resume(front.key, front.arg);
-        else back = null;
-    }
-    this._invoke = send;
-    if (typeof gen.return !== "function") this.return = undefined;
-}
-exports.default = AsyncGenerator;
-if (typeof Symbol === "function" && Symbol.asyncIterator) AsyncGenerator.prototype[Symbol.asyncIterator] = function() {
-    return this;
-};
-AsyncGenerator.prototype.next = function(arg) {
-    return this._invoke("next", arg);
-};
-AsyncGenerator.prototype.throw = function(arg) {
-    return this._invoke("throw", arg);
-};
-AsyncGenerator.prototype.return = function(arg) {
-    return this._invoke("return", arg);
-};
-
-},{"./_await_value":"61DYg","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"61DYg":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _AwaitValue(value) {
-    this.wrapped = value;
-}
-exports.default = _AwaitValue;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"g2xDn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _asyncGeneratorDelegate(inner, awaitWrap) {
-    var iter = {
-    }, waiting = false;
-    function pump(key, value) {
-        waiting = true;
-        value = new Promise(function(resolve) {
-            resolve(inner[key](value));
-        });
-        return {
-            done: false,
-            value: awaitWrap(value)
-        };
-    }
-    if (typeof Symbol === "function" && Symbol.iterator) iter[Symbol.iterator] = function() {
-        return this;
-    };
-    iter.next = function(value) {
-        if (waiting) {
-            waiting = false;
-            return value;
-        }
-        return pump("next", value);
-    };
-    if (typeof inner.throw === "function") iter.throw = function(value) {
-        if (waiting) {
-            waiting = false;
-            throw value;
-        }
-        return pump("throw", value);
-    };
-    if (typeof inner.return === "function") iter.return = function(value) {
-        return pump("return", value);
-    };
-    return iter;
-}
-exports.default = _asyncGeneratorDelegate;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"i0uoz":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _asyncIterator(iterable) {
-    var method;
-    if (typeof Symbol === "function") {
-        if (Symbol.asyncIterator) {
-            method = iterable[Symbol.asyncIterator];
-            if (method != null) return method.call(iterable);
-        }
-        if (Symbol.iterator) {
-            method = iterable[Symbol.iterator];
-            if (method != null) return method.call(iterable);
-        }
-    }
-    throw new TypeError("Object is not async iterable");
-}
-exports.default = _asyncIterator;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4L1PR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-    try {
-        var info = gen[key](arg);
-        var value = info.value;
-    } catch (error) {
-        reject(error);
-        return;
-    }
-    if (info.done) resolve(value);
-    else Promise.resolve(value).then(_next, _throw);
-}
-function _asyncToGenerator(fn) {
-    return function() {
-        var self = this, args = arguments;
-        return new Promise(function(resolve, reject) {
-            var gen = fn.apply(self, args);
-            function _next(value) {
-                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-            }
-            function _throw(err) {
-                asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-            }
-            _next(undefined);
-        });
-    };
-}
-exports.default = _asyncToGenerator;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"cJhNR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _awaitValue = require("./_await_value");
-var _awaitValueDefault = parcelHelpers.interopDefault(_awaitValue);
-function _awaitAsyncGenerator(value) {
-    return new _awaitValueDefault.default(value);
-}
-exports.default = _awaitAsyncGenerator;
-
-},{"./_await_value":"61DYg","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1lDqY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-}
-exports.default = _classCallCheck;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fb7ka":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classNameTDZError(name) {
-    throw new Error("Class \"" + name + "\" cannot be referenced in computed property keys.");
-}
-exports.default = _classNameTDZError;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4JlXL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classPrivateFieldGet(receiver, privateMap) {
-    if (!privateMap.has(receiver)) throw new TypeError("attempted to get private field on non-instance");
-    return privateMap.get(receiver).value;
-}
-exports.default = _classPrivateFieldGet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"daYYY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classPrivateFieldBase(receiver, privateKey) {
-    if (!Object.prototype.hasOwnProperty.call(receiver, privateKey)) throw new TypeError("attempted to use private field on non-instance");
-    return receiver;
-}
-exports.default = _classPrivateFieldBase;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"d7gDM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classPrivateFieldSet(receiver, privateMap, value) {
-    if (!privateMap.has(receiver)) throw new TypeError("attempted to set private field on non-instance");
-    var descriptor = privateMap.get(receiver);
-    if (!descriptor.writable) throw new TypeError("attempted to set read only private field");
-    descriptor.value = value;
-    return value;
-}
-exports.default = _classPrivateFieldSet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"02hMT":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classPrivateMethodGet(receiver, privateSet, fn) {
-    if (!privateSet.has(receiver)) throw new TypeError("attempted to get private field on non-instance");
-    return fn;
-}
-exports.default = _classPrivateMethodGet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"3sgKu":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classPrivateMethodSet() {
-    throw new TypeError("attempted to reassign private method");
-}
-exports.default = _classPrivateMethodSet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"aJiy0":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classStaticPrivateFieldSpecGet(receiver, classConstructor, descriptor) {
-    if (receiver !== classConstructor) throw new TypeError("Private static access of wrong provenance");
-    return descriptor.value;
-}
-exports.default = _classStaticPrivateFieldSpecGet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"13X0a":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _classStaticPrivateFieldSpecSet(receiver, classConstructor, descriptor, value) {
-    if (receiver !== classConstructor) throw new TypeError("Private static access of wrong provenance");
-    if (!descriptor.writable) throw new TypeError("attempted to set read only private field");
-    descriptor.value = value;
-    return value;
-}
-exports.default = _classStaticPrivateFieldSpecSet;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1JSGS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function isNativeReflectConstruct() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-        Date.prototype.toString.call(Reflect.construct(Date, [], function() {
-        }));
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-function construct(Parent, args, Class) {
-    if (isNativeReflectConstruct()) construct = Reflect.construct;
-    else construct = function construct1(Parent1, args1, Class1) {
-        var a = [
-            null
-        ];
-        a.push.apply(a, args1);
-        var Constructor = Function.bind.apply(Parent1, a);
-        var instance = new Constructor();
-        if (Class1) _setPrototypeOf(instance, Class1.prototype);
-        return instance;
-    };
-    return construct.apply(null, arguments);
-}
-function _construct(Parent, args, Class) {
-    return construct.apply(null, arguments);
-}
-exports.default = _construct;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"3hIAN":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _defineProperties(target, props) {
-    for(var i = 0; i < props.length; i++){
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-    }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-}
-exports.default = _createClass;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"bBOBc":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _toArray = require("./_to_array");
-var _toArrayDefault = parcelHelpers.interopDefault(_toArray);
-var _toPropertyKey = require("./_to_property_key");
-var _toPropertyKeyDefault = parcelHelpers.interopDefault(_toPropertyKey);
-function _decorate(decorators, factory, superClass) {
-    var r = factory(function initialize(O) {
-        _initializeInstanceElements(O, decorated.elements);
-    }, superClass);
-    var decorated = _decorateClass(_coalesceClassElements(r.d.map(_createElementDescriptor)), decorators);
-    _initializeClassElements(r.F, decorated.elements);
-    return _runClassFinishers(r.F, decorated.finishers);
-}
-exports.default = _decorate;
-function _createElementDescriptor(def) {
-    var key = _toPropertyKeyDefault.default(def.key);
-    var descriptor;
-    if (def.kind === "method") {
-        descriptor = {
-            value: def.value,
-            writable: true,
-            configurable: true,
-            enumerable: false
-        };
-        Object.defineProperty(def.value, "name", {
-            value: _typeof(key) === "symbol" ? "" : key,
-            configurable: true
-        });
-    } else if (def.kind === "get") descriptor = {
-        get: def.value,
-        configurable: true,
-        enumerable: false
-    };
-    else if (def.kind === "set") descriptor = {
-        set: def.value,
-        configurable: true,
-        enumerable: false
-    };
-    else if (def.kind === "field") descriptor = {
-        configurable: true,
-        writable: true,
-        enumerable: true
-    };
-    var element = {
-        kind: def.kind === "field" ? "field" : "method",
-        key: key,
-        placement: def.static ? "static" : def.kind === "field" ? "own" : "prototype",
-        descriptor: descriptor
-    };
-    if (def.decorators) element.decorators = def.decorators;
-    if (def.kind === "field") element.initializer = def.value;
-    return element;
-}
-function _coalesceGetterSetter(element, other) {
-    if (element.descriptor.get !== undefined) other.descriptor.get = element.descriptor.get;
-    else other.descriptor.set = element.descriptor.set;
-}
-function _coalesceClassElements(elements) {
-    var newElements = [];
-    var isSameElement = function isSameElement1(other) {
-        return other.kind === "method" && other.key === element.key && other.placement === element.placement;
-    };
-    for(var i = 0; i < elements.length; i++){
-        var element = elements[i];
-        var other;
-        if (element.kind === "method" && (other = newElements.find(isSameElement))) {
-            if (_isDataDescriptor(element.descriptor) || _isDataDescriptor(other.descriptor)) {
-                if (_hasDecorators(element) || _hasDecorators(other)) throw new ReferenceError("Duplicated methods (" + element.key + ") can't be decorated.");
-                other.descriptor = element.descriptor;
-            } else {
-                if (_hasDecorators(element)) {
-                    if (_hasDecorators(other)) throw new ReferenceError("Decorators can't be placed on different accessors with for the same property (" + element.key + ").");
-                    other.decorators = element.decorators;
-                }
-                _coalesceGetterSetter(element, other);
-            }
-        } else newElements.push(element);
-    }
-    return newElements;
-}
-function _hasDecorators(element) {
-    return element.decorators && element.decorators.length;
-}
-function _isDataDescriptor(desc) {
-    return desc !== undefined && !(desc.value === undefined && desc.writable === undefined);
-}
-function _initializeClassElements(F, elements) {
-    var proto = F.prototype;
-    [
-        "method",
-        "field"
-    ].forEach(function(kind) {
-        elements.forEach(function(element) {
-            var placement = element.placement;
-            if (element.kind === kind && (placement === "static" || placement === "prototype")) {
-                var receiver = placement === "static" ? F : proto;
-                _defineClassElement(receiver, element);
-            }
-        });
-    });
-}
-function _initializeInstanceElements(O, elements) {
-    [
-        "method",
-        "field"
-    ].forEach(function(kind) {
-        elements.forEach(function(element) {
-            if (element.kind === kind && element.placement === "own") _defineClassElement(O, element);
-        });
-    });
-}
-function _defineClassElement(receiver, element) {
-    var descriptor = element.descriptor;
-    if (element.kind === "field") {
-        var initializer = element.initializer;
-        descriptor = {
-            enumerable: descriptor.enumerable,
-            writable: descriptor.writable,
-            configurable: descriptor.configurable,
-            value: initializer === void 0 ? void 0 : initializer.call(receiver)
-        };
-    }
-    Object.defineProperty(receiver, element.key, descriptor);
-}
-function _decorateClass(elements, decorators) {
-    var newElements = [];
-    var finishers = [];
-    var placements = {
-        static: [],
-        prototype: [],
-        own: []
-    };
-    elements.forEach(function(element) {
-        _addElementPlacement(element, placements);
-    });
-    elements.forEach(function(element) {
-        if (!_hasDecorators(element)) return newElements.push(element);
-        var elementFinishersExtras = _decorateElement(element, placements);
-        newElements.push(elementFinishersExtras.element);
-        newElements.push.apply(newElements, elementFinishersExtras.extras);
-        finishers.push.apply(finishers, elementFinishersExtras.finishers);
-    });
-    if (!decorators) return {
-        elements: newElements,
-        finishers: finishers
-    };
-    var result = _decorateConstructor(newElements, decorators);
-    finishers.push.apply(finishers, result.finishers);
-    result.finishers = finishers;
-    return result;
-}
-function _addElementPlacement(element, placements, silent) {
-    var keys = placements[element.placement];
-    if (!silent && keys.indexOf(element.key) !== -1) throw new TypeError("Duplicated element (" + element.key + ")");
-    keys.push(element.key);
-}
-function _decorateElement(element, placements) {
-    var extras = [];
-    var finishers = [];
-    for(var decorators = element.decorators, i = decorators.length - 1; i >= 0; i--){
-        var keys = placements[element.placement];
-        keys.splice(keys.indexOf(element.key), 1);
-        var elementObject = _fromElementDescriptor(element);
-        var elementFinisherExtras = _toElementFinisherExtras(decorators[i](elementObject) || elementObject);
-        element = elementFinisherExtras.element;
-        _addElementPlacement(element, placements);
-        if (elementFinisherExtras.finisher) finishers.push(elementFinisherExtras.finisher);
-        var newExtras = elementFinisherExtras.extras;
-        if (newExtras) {
-            for(var j = 0; j < newExtras.length; j++)_addElementPlacement(newExtras[j], placements);
-            extras.push.apply(extras, newExtras);
-        }
-    }
-    return {
-        element: element,
-        finishers: finishers,
-        extras: extras
-    };
-}
-function _decorateConstructor(elements, decorators) {
-    var finishers = [];
-    for(var i = decorators.length - 1; i >= 0; i--){
-        var obj = _fromClassDescriptor(elements);
-        var elementsAndFinisher = _toClassDescriptor(decorators[i](obj) || obj);
-        if (elementsAndFinisher.finisher !== undefined) finishers.push(elementsAndFinisher.finisher);
-        if (elementsAndFinisher.elements !== undefined) {
-            elements = elementsAndFinisher.elements;
-            for(var j = 0; j < elements.length - 1; j++)for(var k = j + 1; k < elements.length; k++){
-                if (elements[j].key === elements[k].key && elements[j].placement === elements[k].placement) throw new TypeError("Duplicated element (" + elements[j].key + ")");
-            }
-        }
-    }
-    return {
-        elements: elements,
-        finishers: finishers
-    };
-}
-function _fromElementDescriptor(element) {
-    var obj = {
-        kind: element.kind,
-        key: element.key,
-        placement: element.placement,
-        descriptor: element.descriptor
-    };
-    var desc = {
-        value: "Descriptor",
-        configurable: true
-    };
-    Object.defineProperty(obj, Symbol.toStringTag, desc);
-    if (element.kind === "field") obj.initializer = element.initializer;
-    return obj;
-}
-function _toElementDescriptors(elementObjects) {
-    if (elementObjects === undefined) return;
-    return _toArrayDefault.default(elementObjects).map(function(elementObject) {
-        var element = _toElementDescriptor(elementObject);
-        _disallowProperty(elementObject, "finisher", "An element descriptor");
-        _disallowProperty(elementObject, "extras", "An element descriptor");
-        return element;
-    });
-}
-function _toElementDescriptor(elementObject) {
-    var kind = String(elementObject.kind);
-    if (kind !== "method" && kind !== "field") throw new TypeError("An element descriptor's .kind property must be either \"method\" or \"field\", but a decorator created an element descriptor with .kind \"" + kind + '"');
-    var key = _toPropertyKeyDefault.default(elementObject.key);
-    var placement = String(elementObject.placement);
-    if (placement !== "static" && placement !== "prototype" && placement !== "own") throw new TypeError("An element descriptor's .placement property must be one of \"static\", \"prototype\" or \"own\", but a decorator created an element descriptor with .placement \"" + placement + '"');
-    var descriptor = elementObject.descriptor;
-    _disallowProperty(elementObject, "elements", "An element descriptor");
-    var element = {
-        kind: kind,
-        key: key,
-        placement: placement,
-        descriptor: Object.assign({
-        }, descriptor)
-    };
-    if (kind !== "field") _disallowProperty(elementObject, "initializer", "A method descriptor");
-    else {
-        _disallowProperty(descriptor, "get", "The property descriptor of a field descriptor");
-        _disallowProperty(descriptor, "set", "The property descriptor of a field descriptor");
-        _disallowProperty(descriptor, "value", "The property descriptor of a field descriptor");
-        element.initializer = elementObject.initializer;
-    }
-    return element;
-}
-function _toElementFinisherExtras(elementObject) {
-    var element = _toElementDescriptor(elementObject);
-    var finisher = _optionalCallableProperty(elementObject, "finisher");
-    var extras = _toElementDescriptors(elementObject.extras);
-    return {
-        element: element,
-        finisher: finisher,
-        extras: extras
-    };
-}
-function _fromClassDescriptor(elements) {
-    var obj = {
-        kind: "class",
-        elements: elements.map(_fromElementDescriptor)
-    };
-    var desc = {
-        value: "Descriptor",
-        configurable: true
-    };
-    Object.defineProperty(obj, Symbol.toStringTag, desc);
-    return obj;
-}
-function _toClassDescriptor(obj) {
-    var kind = String(obj.kind);
-    if (kind !== "class") throw new TypeError("A class descriptor's .kind property must be \"class\", but a decorator created a class descriptor with .kind \"" + kind + '"');
-    _disallowProperty(obj, "key", "A class descriptor");
-    _disallowProperty(obj, "placement", "A class descriptor");
-    _disallowProperty(obj, "descriptor", "A class descriptor");
-    _disallowProperty(obj, "initializer", "A class descriptor");
-    _disallowProperty(obj, "extras", "A class descriptor");
-    var finisher = _optionalCallableProperty(obj, "finisher");
-    var elements = _toElementDescriptors(obj.elements);
-    return {
-        elements: elements,
-        finisher: finisher
-    };
-}
-function _disallowProperty(obj, name, objectType) {
-    if (obj[name] !== undefined) throw new TypeError(objectType + " can't have a ." + name + " property.");
-}
-function _optionalCallableProperty(obj, name) {
-    var value = obj[name];
-    if (value !== undefined && typeof value !== "function") throw new TypeError("Expected '" + name + "' to be a function");
-    return value;
-}
-function _runClassFinishers(constructor, finishers) {
-    for(var i = 0; i < finishers.length; i++){
-        var newConstructor = finishers[i](constructor);
-        if (newConstructor !== undefined) {
-            if (typeof newConstructor !== "function") throw new TypeError("Finishers must return a constructor.");
-            constructor = newConstructor;
-        }
-    }
-    return constructor;
-}
-
-},{"./_to_array":"2CPtF","./_to_property_key":"hXDcu","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"2CPtF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _arrayWithHoles = require("./_array_with_holes");
-var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
-var _iterableToArray = require("./_iterable_to_array");
-var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
-var _nonIterableRest = require("./_non_iterable_rest");
-var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
-function _toArray(arr) {
-    return _arrayWithHolesDefault.default(arr) || _iterableToArrayDefault.default(arr) || _nonIterableRestDefault.default();
-}
-exports.default = _toArray;
-
-},{"./_array_with_holes":"jK4ol","./_iterable_to_array":"fioPv","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fioPv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-exports.default = _iterableToArray;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"lBdNT":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
-exports.default = _nonIterableRest;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hXDcu":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _typeOf = require("./_type_of");
-var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
-var _toPrimitive = require("./_to_primitive");
-var _toPrimitiveDefault = parcelHelpers.interopDefault(_toPrimitive);
-function _toPropertyKey(arg) {
-    var key = _toPrimitiveDefault.default(arg, "string");
-    return _typeOfDefault.default(key) === "symbol" ? key : String(key);
-}
-exports.default = _toPropertyKey;
-
-},{"./_type_of":"itxYh","./_to_primitive":"jiiy5","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"itxYh":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _typeof(obj) {
-    return obj && obj.constructor === Symbol ? "symbol" : typeof obj;
-}
-exports.default = _typeof;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jiiy5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _typeOf = require("./_type_of");
-var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
-function _toPrimitive(input, hint) {
-    if (_typeOfDefault.default(input) !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-        var res = prim.call(input, hint || "default");
-        if (_typeOfDefault.default(res) !== "object") return res;
-        throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-}
-exports.default = _toPrimitive;
-
-},{"./_type_of":"itxYh","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9B1Hi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _defaults(obj, defaults) {
-    var keys = Object.getOwnPropertyNames(defaults);
-    for(var i = 0; i < keys.length; i++){
-        var key = keys[i];
-        var value = Object.getOwnPropertyDescriptor(defaults, key);
-        if (value && value.configurable && obj[key] === undefined) Object.defineProperty(obj, key, value);
-    }
-    return obj;
-}
-exports.default = _defaults;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"fLDuq":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _defineEnumerableProperties(obj, descs) {
-    for(var key in descs){
-        var desc = descs[key];
-        desc.configurable = desc.enumerable = true;
-        if ("value" in desc) desc.writable = true;
-        Object.defineProperty(obj, key, desc);
-    }
-    if (Object.getOwnPropertySymbols) {
-        var objectSymbols = Object.getOwnPropertySymbols(descs);
-        for(var i = 0; i < objectSymbols.length; i++){
-            var sym = objectSymbols[i];
-            var desc = descs[sym];
-            desc.configurable = desc.enumerable = true;
-            if ("value" in desc) desc.writable = true;
-            Object.defineProperty(obj, sym, desc);
-        }
-    }
-    return obj;
-}
-exports.default = _defineEnumerableProperties;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"66tZd":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _defineProperty(obj, key, value) {
-    if (key in obj) Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-    });
-    else obj[key] = value;
-    return obj;
-}
-exports.default = _defineProperty;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"emRQr":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function extends_() {
-    extends_ = Object.assign || function(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return extends_.apply(this, arguments);
-}
-function _extends() {
-    return extends_.apply(this, arguments);
-}
-exports.default = _extends;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"d7rIq":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _superPropBase = require("./_super_prop_base");
-var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
-function get(target, property, receiver) {
-    if (typeof Reflect !== "undefined" && Reflect.get) get = Reflect.get;
-    else get = function get1(target1, property1, receiver1) {
-        var base = _superPropBaseDefault.default(target1, property1);
-        if (!base) return;
-        var desc = Object.getOwnPropertyDescriptor(base, property1);
-        if (desc.get) return desc.get.call(receiver1 || target1);
-        return desc.value;
-    };
-    return get(target, property, receiver);
-}
-function _get(target, property, reciever) {
-    return get(target, property, reciever);
-}
-exports.default = _get;
-
-},{"./_super_prop_base":"1Lhsi","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1Lhsi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _getPrototypeOf = require("./_get_prototype_of");
-var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
-function _superPropBase(object, property) {
-    while(!Object.prototype.hasOwnProperty.call(object, property)){
-        object = _getPrototypeOfDefault.default(object);
-        if (object === null) break;
-    }
-    return object;
-}
-exports.default = _superPropBase;
-
-},{"./_get_prototype_of":"9J7rd","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9J7rd":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function getPrototypeOf(o) {
-    getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function getPrototypeOf1(o1) {
-        return o1.__proto__ || Object.getPrototypeOf(o1);
-    };
-    return getPrototypeOf(o);
-}
-function _getPrototypeOf(o) {
-    return getPrototypeOf(o);
-}
-exports.default = _getPrototypeOf;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jKzCA":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _setPrototypeOf = require("./_set_prototype_of");
-var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
-function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value: subClass,
-            writable: true,
-            configurable: true
-        }
-    });
-    if (superClass) _setPrototypeOfDefault.default(subClass, superClass);
-}
-exports.default = _inherits;
-
-},{"./_set_prototype_of":"8IYjp","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"8IYjp":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function setPrototypeOf(o, p) {
-    setPrototypeOf = Object.setPrototypeOf || function setPrototypeOf1(o1, p1) {
-        o1.__proto__ = p1;
-        return o1;
-    };
-    return setPrototypeOf(o, p);
-}
-function _setPrototypeOf(o, p) {
-    return setPrototypeOf(o, p);
-}
-exports.default = _setPrototypeOf;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"66DaS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-}
-exports.default = _inheritsLoose;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hpAMk":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _initializerDefineProperty(target, property, descriptor, context) {
-    if (!descriptor) return;
-    Object.defineProperty(target, property, {
-        enumerable: descriptor.enumerable,
-        configurable: descriptor.configurable,
-        writable: descriptor.writable,
-        value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-    });
-}
-exports.default = _initializerDefineProperty;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4PF1G":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _initializerWarningHelper(descriptor, context) {
-    throw new Error("Decorating class property failed. Please ensure that proposal-class-properties is enabled and set to use loose mode. To use proposal-class-properties in spec mode with decorators, wait for the next major version of decorators in stage 2.");
-}
-exports.default = _initializerWarningHelper;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"hcOwE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _instanceof(left, right) {
-    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) return right[Symbol.hasInstance](left);
-    else return left instanceof right;
-}
-exports.default = _instanceof;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"auSRf":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-exports.default = _interopRequireDefault;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"h8y9c":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _interopRequireWildcard(obj) {
-    if (obj && obj.__esModule) return obj;
-    else {
-        var newObj = {
-        };
-        if (obj != null) {
-            for(var key in obj)if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {
-                };
-                if (desc.get || desc.set) Object.defineProperty(newObj, key, desc);
-                else newObj[key] = obj[key];
-            }
-        }
-        newObj.default = obj;
-        return newObj;
-    }
-}
-exports.default = _interopRequireWildcard;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"8u1EX":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _isNativeFunction(fn) {
-    return Function.toString.call(fn).indexOf("[native code]") !== -1;
-}
-exports.default = _isNativeFunction;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"dsUdy":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _iterableToArrayLimit(arr, i) {
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _e = undefined;
-    try {
-        for(var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true){
-            _arr.push(_s.value);
-            if (i && _arr.length === i) break;
-        }
-    } catch (err) {
-        _d = true;
-        _e = err;
-    } finally{
-        try {
-            if (!_n && _i["return"] != null) _i["return"]();
-        } finally{
-            if (_d) throw _e;
-        }
-    }
-    return _arr;
-}
-exports.default = _iterableToArrayLimit;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"5HHUm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _iterableToArrayLimitLoose(arr, i) {
-    var _arr = [];
-    for(var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;){
-        _arr.push(_step.value);
-        if (i && _arr.length === i) break;
-    }
-    return _arr;
-}
-exports.default = _iterableToArrayLimitLoose;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4vGAS":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var REACT_ELEMENT_TYPE;
-function _createRawReactElement(type, props, key, children) {
-    if (!REACT_ELEMENT_TYPE) REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 60103;
-    var defaultProps = type && type.defaultProps;
-    var childrenLength = arguments.length - 3;
-    if (!props && childrenLength !== 0) props = {
-        children: void 0
-    };
-    if (props && defaultProps) {
-        for(var propName in defaultProps)if (props[propName] === void 0) props[propName] = defaultProps[propName];
-    } else if (!props) props = defaultProps || {
-    };
-    if (childrenLength === 1) props.children = children;
-    else if (childrenLength > 1) {
-        var childArray = new Array(childrenLength);
-        for(var i = 0; i < childrenLength; i++)childArray[i] = arguments[i + 3];
-        props.children = childArray;
-    }
-    return {
-        $$typeof: REACT_ELEMENT_TYPE,
-        type: type,
-        key: key === undefined ? null : '' + key,
-        ref: null,
-        props: props,
-        _owner: null
-    };
-}
-exports.default = _createRawReactElement;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"4pxHK":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _newArrowCheck(innerThis, boundThis) {
-    if (innerThis !== boundThis) throw new TypeError("Cannot instantiate an arrow function");
-}
-exports.default = _newArrowCheck;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"lQAYF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-exports.default = _nonIterableSpread;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"a4gFb":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _defineProperty = require("./_define_property");
-var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
-function _objectSpread(target) {
-    for(var i = 1; i < arguments.length; i++){
-        var source = arguments[i] != null ? arguments[i] : {
-        };
-        var ownKeys = Object.keys(source);
-        if (typeof Object.getOwnPropertySymbols === 'function') ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
-            return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
-        ownKeys.forEach(function(key) {
-            _definePropertyDefault.default(target, key, source[key]);
-        });
-    }
-    return target;
-}
-exports.default = _objectSpread;
-
-},{"./_define_property":"66tZd","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"ioY4X":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _objectWithoutPropertiesLoose = require("./_object_without_properties_loose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-function _objectWithoutProperties(source, excluded) {
-    if (source == null) return {
-    };
-    var target = _objectWithoutPropertiesLooseDefault.default(source, excluded);
-    var key, i;
-    if (Object.getOwnPropertySymbols) {
-        var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-        for(i = 0; i < sourceSymbolKeys.length; i++){
-            key = sourceSymbolKeys[i];
-            if (excluded.indexOf(key) >= 0) continue;
-            if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-            target[key] = source[key];
-        }
-    }
-    return target;
-}
-exports.default = _objectWithoutProperties;
-
-},{"./_object_without_properties_loose":"jj0GB","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jj0GB":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {
-    };
-    var target = {
-    };
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-exports.default = _objectWithoutPropertiesLoose;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"dikHJ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _assertThisInitialized = require("./_assert_this_initialized");
-var _assertThisInitializedDefault = parcelHelpers.interopDefault(_assertThisInitialized);
-var _typeOf = require("./_type_of");
-var _typeOfDefault = parcelHelpers.interopDefault(_typeOf);
-function _possibleConstructorReturn(self, call) {
-    if (call && (_typeOfDefault.default(call) === "object" || typeof call === "function")) return call;
-    return _assertThisInitializedDefault.default(self);
-}
-exports.default = _possibleConstructorReturn;
-
-},{"./_assert_this_initialized":"9ttHL","./_type_of":"itxYh","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9J5B3":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _readOnlyError(name) {
-    throw new Error("\"" + name + "\" is read-only");
-}
-exports.default = _readOnlyError;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jUH2n":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _defineProperty = require("./_define_property");
-var _definePropertyDefault = parcelHelpers.interopDefault(_defineProperty);
-var _superPropBase = require("./_super_prop_base");
-var _superPropBaseDefault = parcelHelpers.interopDefault(_superPropBase);
-function set(target, property, value, receiver) {
-    if (typeof Reflect !== "undefined" && Reflect.set) set = Reflect.set;
-    else set = function set1(target1, property1, value1, receiver1) {
-        var base = _superPropBaseDefault.default(target1, property1);
-        var desc;
-        if (base) {
-            desc = Object.getOwnPropertyDescriptor(base, property1);
-            if (desc.set) {
-                desc.set.call(receiver1, value1);
-                return true;
-            } else if (!desc.writable) return false;
-        }
-        desc = Object.getOwnPropertyDescriptor(receiver1, property1);
-        if (desc) {
-            if (!desc.writable) return false;
-            desc.value = value1;
-            Object.defineProperty(receiver1, property1, desc);
-        } else _definePropertyDefault.default(receiver1, property1, value1);
-        return true;
-    };
-    return set(target, property, value, receiver);
-}
-function _set(target, property, value, receiver, isStrict) {
-    var s = set(target, property, value, receiver || target);
-    if (!s && isStrict) throw new Error('failed to set property');
-    return value;
-}
-exports.default = _set;
-
-},{"./_define_property":"66tZd","./_super_prop_base":"1Lhsi","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"1QKVU":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _skipFirstGeneratorNext(fn) {
-    return function() {
-        var it = fn.apply(this, arguments);
-        it.next();
-        return it;
-    };
-}
-exports.default = _skipFirstGeneratorNext;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"c4bqb":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _arrayWithHoles = require("./_array_with_holes");
-var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
-var _iterableToArray = require("./_iterable_to_array");
-var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
-var _nonIterableRest = require("./_non_iterable_rest");
-var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
-function _slicedToArray(arr, i) {
-    return _arrayWithHolesDefault.default(arr) || _iterableToArrayDefault.default(arr, i) || _nonIterableRestDefault.default();
-}
-exports.default = _slicedToArray;
-
-},{"./_array_with_holes":"jK4ol","./_iterable_to_array":"fioPv","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"6BenR":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _arrayWithHoles = require("./_array_with_holes");
-var _arrayWithHolesDefault = parcelHelpers.interopDefault(_arrayWithHoles);
-var _iterableToArrayLimitLoose = require("./_iterable_to_array_limit_loose");
-var _iterableToArrayLimitLooseDefault = parcelHelpers.interopDefault(_iterableToArrayLimitLoose);
-var _nonIterableRest = require("./_non_iterable_rest");
-var _nonIterableRestDefault = parcelHelpers.interopDefault(_nonIterableRest);
-function _slicedToArrayLoose(arr, i) {
-    return _arrayWithHolesDefault.default(arr) || _iterableToArrayLimitLooseDefault.default(arr, i) || _nonIterableRestDefault.default();
-}
-exports.default = _slicedToArrayLoose;
-
-},{"./_array_with_holes":"jK4ol","./_iterable_to_array_limit_loose":"5HHUm","./_non_iterable_rest":"lBdNT","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"0zKhv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _taggedTemplateLiteral(strings, raw) {
-    if (!raw) raw = strings.slice(0);
-    return Object.freeze(Object.defineProperties(strings, {
-        raw: {
-            value: Object.freeze(raw)
-        }
-    }));
-}
-exports.default = _taggedTemplateLiteral;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"cjiAi":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _taggedTemplateLiteralLoose(strings, raw) {
-    if (!raw) raw = strings.slice(0);
-    strings.raw = raw;
-    return strings;
-}
-exports.default = _taggedTemplateLiteralLoose;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"5CpWw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _throw(e) {
-    throw e;
-}
-exports.default = _throw;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"7TGZW":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _arrayWithoutHoles = require("./_array_without_holes");
-var _arrayWithoutHolesDefault = parcelHelpers.interopDefault(_arrayWithoutHoles);
-var _iterableToArray = require("./_iterable_to_array");
-var _iterableToArrayDefault = parcelHelpers.interopDefault(_iterableToArray);
-var _nonIterableSpread = require("./_non_iterable_spread");
-var _nonIterableSpreadDefault = parcelHelpers.interopDefault(_nonIterableSpread);
-function _toConsumableArray(arr) {
-    return _arrayWithoutHolesDefault.default(arr) || _iterableToArrayDefault.default(arr) || _nonIterableSpreadDefault.default();
-}
-exports.default = _toConsumableArray;
-
-},{"./_array_without_holes":"4xW5O","./_iterable_to_array":"fioPv","./_non_iterable_spread":"lQAYF","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"02Kif":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _asyncGenerator = require("./_async_generator");
-var _asyncGeneratorDefault = parcelHelpers.interopDefault(_asyncGenerator);
-function _wrapAsyncGenerator(fn) {
-    return function() {
-        return new _asyncGeneratorDefault.default(fn.apply(this, arguments));
-    };
-}
-exports.default = _wrapAsyncGenerator;
-
-},{"./_async_generator":"c1Fxn","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"70RJm":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _construct = require("./_construct");
-var _constructDefault = parcelHelpers.interopDefault(_construct);
-var _isNativeFunction = require("./_is_native_function");
-var _isNativeFunctionDefault = parcelHelpers.interopDefault(_isNativeFunction);
-var _getPrototypeOf = require("./_get_prototype_of");
-var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
-var _setPrototypeOf = require("./_set_prototype_of");
-var _setPrototypeOfDefault = parcelHelpers.interopDefault(_setPrototypeOf);
-function wrapNativeSuper(Class) {
-    var _cache = typeof Map === "function" ? new Map() : undefined;
-    wrapNativeSuper = function wrapNativeSuper1(Class1) {
-        if (Class1 === null || !_isNativeFunctionDefault.default(Class1)) return Class1;
-        if (typeof Class1 !== "function") throw new TypeError("Super expression must either be null or a function");
-        if (typeof _cache !== "undefined") {
-            if (_cache.has(Class1)) return _cache.get(Class1);
-            _cache.set(Class1, Wrapper);
-        }
-        function Wrapper() {
-            return _constructDefault.default(Class1, arguments, _getPrototypeOfDefault.default(this).constructor);
-        }
-        Wrapper.prototype = Object.create(Class1.prototype, {
-            constructor: {
-                value: Wrapper,
-                enumerable: false,
-                writable: true,
-                configurable: true
-            }
-        });
-        return _setPrototypeOfDefault.default(Wrapper, Class1);
-    };
-    return wrapNativeSuper(Class);
-}
-function _wrapNativeSuper(Class) {
-    return wrapNativeSuper(Class);
-}
-exports.default = _wrapNativeSuper;
-
-},{"./_construct":"1JSGS","./_is_native_function":"8u1EX","./_get_prototype_of":"9J7rd","./_set_prototype_of":"8IYjp","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"jVs2M":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _isNativeReflectConstruct = require("./_is_native_reflect_construct");
-var _isNativeReflectConstructDefault = parcelHelpers.interopDefault(_isNativeReflectConstruct);
-var _getPrototypeOf = require("./_get_prototype_of");
-var _getPrototypeOfDefault = parcelHelpers.interopDefault(_getPrototypeOf);
-var _possibleConstructorReturn = require("./_possible_constructor_return");
-var _possibleConstructorReturnDefault = parcelHelpers.interopDefault(_possibleConstructorReturn);
-function _createSuper(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstructDefault.default();
-    return function _createSuperInternal() {
-        var Super = _getPrototypeOfDefault.default(Derived), result;
-        if (hasNativeReflectConstruct) {
-            var NewTarget = _getPrototypeOfDefault.default(this).constructor;
-            result = Reflect.construct(Super, arguments, NewTarget);
-        } else result = Super.apply(this, arguments);
-        return _possibleConstructorReturnDefault.default(this, result);
-    };
-}
-exports.default = _createSuper;
-
-},{"./_is_native_reflect_construct":"9acFY","./_get_prototype_of":"9J7rd","./_possible_constructor_return":"dikHJ","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9acFY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function _isNativeReflectConstruct() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
-        }));
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-exports.default = _isNativeReflectConstruct;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv"}],"9tpci":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"@swc/helpers":"9Dm3z","react/jsx-runtime":"6AEwr","react":"21dqq","axios":"jo6P5","prop-types":"7wKI2","react-router-dom":"fdOAw","react-bootstrap/":"3AD9A","./profile-view.scss":"eyKYH","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"eyKYH":[function() {},{}],"3U8r7":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$ad4a.prelude(module);
+$parcel$ReactRefreshHelpers$789c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
+parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
 );
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-// Import React Bootstrap Components
-var _ = require("react-bootstrap/");
-// Import custom SCSS
-var _directorViewScss = require("./director-view.scss");
-class DirectorView extends _reactDefault.default.Component {
-    render() {
-        console.log(this.props);
-        const { Director , movies  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+var _reactBootstrap = require("react-bootstrap");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _registrationViewScss = require("./registration-view.scss");
+var _s = $RefreshSig$();
+function RegistrationView(props) {
+    _s();
+    const [Username, setUsername] = _react.useState('');
+    const [Password, setPassword] = _react.useState('');
+    const [Email, setEmail] = _react.useState('');
+    const [Birthday, setBirthday] = _react.useState('');
+    /* 
+ // Declare hook for each input
+ const [ usernameErr, setUsernameErr ] = useState('');
+ const [ passwordErr, setPasswordErr ] = useState('');
+ const [ emailErr, setEmailErr ] = useState('');
+
+ // validate user inputs
+ const validate = () => {
+  let isReq = true;
+
+  if(!username){
+      setUsernameErr('Username required');
+      isReq = false;
+  }else if(username.length < 2){
+      setUsernameErr('Username must be at least 2 characters long');
+      isReq = false;
+  }
+  if(!password){
+      setPasswordErr('Password required');
+      isReq = false;
+  }else if(password.length < 6){
+      setPassword('Password must be at least 6 characters long');
+      isReq = false;
+  }
+  if(!email){
+      setEmailErr('Email required');
+      isReq = false;
+  }else if(email.indexOf('@') === -1){
+      setEmail('Email must be valid');
+      isReq = false;
+  }
+
+  return isReq;
+}
+*/ const handleSubmit = (e)=>{
+        e.preventDefault();
+        //const isReq = validate();
+        //if(isReq) { 
+        _axiosDefault.default.post(`https://studioghiblidb.herokuapp.com/users`, {
+            Username: Username,
+            Password: Password,
+            Email: Email,
+            Birthday: Birthday
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            alert('Registration Successful!');
+            window.open('/', '_self');
+        }).catch(function(error) {
+            console.log('error registering');
+        });
+    //};
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+        __source: {
+            fileName: "src/components/registration-view/registration-view.jsx",
+            lineNumber: 71
+        },
+        __self: this,
+        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
             __source: {
-                fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 15
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 72
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_.Container, {
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 __source: {
-                    fileName: "src/components/director-view/director-view.jsx",
-                    lineNumber: 16
+                    fileName: "src/components/registration-view/registration-view.jsx",
+                    lineNumber: 73
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_.Card, {
-                    className: "director-card",
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                     __source: {
-                        fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 18
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 74
                     },
                     __self: this,
                     children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx(_.Card.Header, {
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                             __source: {
-                                fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 19
-                            },
-                            __self: this,
-                            children: "Director"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Body, {
-                            __source: {
-                                fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 20
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 75
                             },
                             __self: this,
                             children: [
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Title, {
-                                    className: "director-card-title",
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                     __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 21
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 76
                                     },
                                     __self: this,
-                                    children: [
-                                        " ",
-                                        Director.Name
-                                    ]
+                                    children: "Username:"
                                 }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
-                                    className: "director-card-text",
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "text",
+                                    value: username,
+                                    placeholder: "Enter a username",
+                                    onChange: (e)=>setUsername(e.target.value)
+                                    ,
+                                    required: true,
                                     __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 22
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 77
                                     },
-                                    __self: this,
-                                    children: [
-                                        "Birth: ",
-                                        Director.Birth
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
-                                    className: "director-card-text",
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 23
-                                    },
-                                    __self: this,
-                                    children: [
-                                        "Death: ",
-                                        Director.Death
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsxs(_.Card.Text, {
-                                    className: "director-card-text",
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 24
-                                    },
-                                    __self: this,
-                                    children: [
-                                        " ",
-                                        Director.Bio
-                                    ]
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_.Card.Footer, {
-                                    className: "director-card-footer",
-                                    __source: {
-                                        fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 25
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_.Button, {
-                                        onClick: ()=>{
-                                            window.location.replace("/");
-                                        },
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 26
-                                        },
-                                        __self: this,
-                                        children: " Back "
-                                    })
+                                    __self: this
                                 })
                             ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 79
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 80
+                                    },
+                                    __self: this,
+                                    children: "Password:"
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    input: true,
+                                    type: "password",
+                                    value: password,
+                                    placeholder: "Your password must be 8 or more characters",
+                                    onChange: (e)=>setPassword(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 81
+                                    },
+                                    __self: this
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 83
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 84
+                                    },
+                                    __self: this,
+                                    children: "Email:"
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "email",
+                                    value: email,
+                                    placeholder: "Enter an email address",
+                                    onChange: (e)=>setEmail(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 85
+                                    },
+                                    __self: this
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 87
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 88
+                                    },
+                                    __self: this,
+                                    children: "Birthday:"
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "birthday",
+                                    value: birthday,
+                                    onChange: (e)=>setBirthday(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/registration-view/registration-view.jsx",
+                                        lineNumber: 89
+                                    },
+                                    __self: this
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            variant: "success",
+                            type: "submit",
+                            onClick: handleSubmit,
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 91
+                            },
+                            __self: this,
+                            children: "Register"
                         })
                     ]
                 })
             })
-        }));
-    }
+        })
+    }));
 }
+_s(RegistrationView, "J16IUu1yMDixnWTxLwnv3U5CF2Y=");
+_c = RegistrationView;
+RegistrationView.propTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired
+    }),
+    onRegistration: _propTypesDefault.default.func
+};
+var _c;
+$RefreshReg$(_c, "RegistrationView");
 
-  $parcel$ReactRefreshHelpers$ad4a.postlude(module);
+  $parcel$ReactRefreshHelpers$789c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","prop-types":"7wKI2","react-bootstrap/":"3AD9A","./director-view.scss":"cVy0f","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI","react/jsx-runtime":"6AEwr"}],"cVy0f":[function() {},{}],"lJZlQ":[function() {},{}]},["3slD6","3JjOj","d8Dch"], "d8Dch", "parcelRequire7972")
+},{"react/jsx-runtime":"6AEwr","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","axios":"jo6P5","react-router-dom":"fdOAw","./registration-view.scss":"clIxH","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"clIxH":[function() {},{}],"eBaMl":[function() {},{}],"divrl":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8284 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8284.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NavbarView", ()=>NavbarView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+// React Bootstrap Components
+var _ = require("react-bootstrap/");
+function NavbarView() {
+    const user = localStorage.getItem('user');
+    const onLoggedOut = ()=>{
+        localStorage.clear();
+        window.open('/', '_self');
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_.Navbar, {
+        bg: "dark",
+        variant: "dark",
+        expand: "lg",
+        className: "justify-content-md-center",
+        __source: {
+            fileName: "src/components/navbar-view/navbar-view.jsx",
+            lineNumber: 17
+        },
+        __self: this,
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_.Container, {
+            __source: {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 19
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                    to: `/`,
+                    __source: {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 20
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_.Navbar.Brand, {
+                        __source: {
+                            fileName: "src/components/navbar-view/navbar-view.jsx",
+                            lineNumber: 21
+                        },
+                        __self: this,
+                        children: "Studio Ghibli"
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_.Button, {
+                    type: "button",
+                    variant: "danger",
+                    onClick: ()=>{
+                        onLoggedOut();
+                    },
+                    __source: {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 23
+                    },
+                    __self: this,
+                    children: "Logout"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_.Nav, {
+                    className: "ml-auto",
+                    __source: {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 25
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_.Nav.Link, {
+                        href: `/users/${user}`,
+                        __source: {
+                            fileName: "src/components/navbar-view/navbar-view.jsx",
+                            lineNumber: 26
+                        },
+                        __self: this,
+                        children: "My Profile"
+                    })
+                })
+            ]
+        })
+    }));
+}
+_c = NavbarView;
+var _c;
+$RefreshReg$(_c, "NavbarView");
+
+  $parcel$ReactRefreshHelpers$8284.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"6AEwr","react":"21dqq","react-router-dom":"fdOAw","react-bootstrap/":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"fYYWv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"gwADI"}],"lJZlQ":[function() {},{}]},["3slD6","3JjOj","d8Dch"], "d8Dch", "parcelRequire7972")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

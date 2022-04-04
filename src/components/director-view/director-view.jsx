@@ -14,7 +14,7 @@ export class DirectorView extends React.Component {
     return (
     <div>
        <Container>
-        
+         
         <Card className="director-card">
         <Card.Header>Director</Card.Header>
           <Card.Body>

@@ -12,13 +12,6 @@ export class MovieView extends React.Component {
     const { movie } = this.props;
     return (
       <Container>
-      <Container>
-        <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
-      <Container>
-        <Navbar.Brand> Studio Ghibli </Navbar.Brand>
-      </Container>
-      </Navbar>
-        </Container>
         <Row>
           <Col>
             <Card className="movie-view">

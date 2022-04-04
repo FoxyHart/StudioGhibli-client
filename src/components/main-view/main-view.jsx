@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-d
 
 
 import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view'
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
-
+import { RegistrationView } from '../registration-view/registration-view'
+import { NavbarView } from '../navbar-view/navbar-view';
 import {Row, Col, Container, Button, Image, Navbar} from 'react-bootstrap/';
 
 
@@ -149,6 +149,12 @@ renderUser = ({ user, movies }) => {
   <ProfileView movies={movies} user={user}  />
 }
 
+renderRegister = ({ user, movies }) => {
+          if (user) return <Redirect to="/" />;
+          return( 
+            <RegistrationView movies={movies} user={user} />
+          )};
+
   render() {
     const { movies, user } = this.state;
 
@@ -160,19 +166,17 @@ renderUser = ({ user, movies }) => {
    
    
     return (
-        <Router>
-   <Routes> 
+    <Router>
+      <NavbarView />
+      <Routes> 
         {/* welcome */}
-      
         <Route exact path="/" element={<this.rendermovies user={user} movies={movies} />} />
+        
+        {/* login view*/}
         <Route path="/login" element={<LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />} />
+        
         {/* registration view*/}
-        <Route path="/register" render={() =>{
-          if (user) return <Redirect to="/register" />;
-          return <Col lg={8} md={8}>
-            <RegistrationView />
-          </Col>
-        }} />
+        <Route exact path="/register" element={<this.renderRegister movies={movies} user={user} />} />
 
         {/* For movie cards */}
         <Route path="/movies/:movieId" element={<this.renderMovie movies={movies} user={user} />} />

@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Navbar, Container, Button, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './registration-view.scss'
 
 export function RegistrationView(props) {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ email, setEmail] = useState('');
-  const [ birthday, setBirthday] = useState('');
- 
+  const [ Username, setUsername ] = useState('');
+  const [ Password, setPassword ] = useState('');
+  const [ Email, setEmail] = useState('');
+  const [ Birthday, setBirthday] = useState('');
+/* 
  // Declare hook for each input
  const [ usernameErr, setUsernameErr ] = useState('');
  const [ passwordErr, setPasswordErr ] = useState('');
@@ -44,16 +45,16 @@ export function RegistrationView(props) {
 
   return isReq;
 }
+*/
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isReq = validate();
-    if(isReq) { 
-      axios
-    .post(`https://studioghiblidb.herokuapp.com/users`, {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday,
+    //const isReq = validate();
+    //if(isReq) { 
+      axios.post(`https://studioghiblidb.herokuapp.com/users`, {
+      Username: Username,
+      Password: Password,
+      Email: Email,
+      Birthday: Birthday,
     })
     .then((response) => {
       const data = response.data;
@@ -64,7 +65,7 @@ export function RegistrationView(props) {
     .catch(function (error) {
       console.log('error registering');
     });
-};
+//};
 }
 return (
   <Container>
