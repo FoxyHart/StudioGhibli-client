@@ -142,17 +142,24 @@ renderDirector = ({ user, movies }) => {
 
 renderUser = ({ user, movies }) => {
   if (!user)
-  return (
+    return (
       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-  );
-
-  <ProfileView movies={movies} user={user}  />
+    );
+  if (movies.length === 0) return <div className="main-view" />;
+    return (
+      <Col md={8}>
+        <ProfileView user={user} 
+                    setUser={(user) => this.setUser(user)}
+                    movies={movies}
+                    onLoggedOut={() => this.onLoggedOut()}/>
+      </Col>
+    );
 }
 
-renderRegister = ({ user, movies }) => {
-          if (user) return <Redirect to="/" />;
+renderRegister = ({ user }) => {
+          if (!user) return <Redirect to="/" />;
           return( 
-            <RegistrationView movies={movies} user={user} />
+            <RegistrationView />
           )};
 
   render() {
@@ -176,7 +183,7 @@ renderRegister = ({ user, movies }) => {
         <Route path="/login" element={<LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />} />
         
         {/* registration view*/}
-        <Route exact path="/register" element={<this.renderRegister movies={movies} user={user} />} />
+        <Route exact path="/register" element={<this.renderRegister user={user} />} />
 
         {/* For movie cards */}
         <Route path="/movies/:movieId" element={<this.renderMovie movies={movies} user={user} />} />

@@ -18,13 +18,19 @@ const onLoggedOut = () => {
         className="justify-content-md-center">
           <Container>
         <Link to={`/`}>
-          <Navbar.Brand>Studio Ghibli</Navbar.Brand>
+          <Navbar.Brand>
+          <img
+          alt="Image of Markel from Howl's Moving Castle"
+          src="https://wallpaperaccess.com/full/244942.jpg"
+          width="70"
+          height="70"
+        />{' '}Studio Ghibli</Navbar.Brand>
         </Link>
-        <Button type="button" variant="danger" onClick={() => { onLoggedOut()}}>
-          Logout</Button>
           <Nav className="ml-auto">
             <Nav.Link href={`/users/${user}`}>My Profile</Nav.Link>
           </Nav>
+          <Button type="button" variant="danger" onClick={() => { onLoggedOut()}}>
+          Logout</Button>
           </Container>
        </Navbar>
   );

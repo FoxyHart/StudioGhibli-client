@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { Form, Container, Button, Navbar } from 'react-bootstrap';
+import { Form, Container, Button, Navbar, Row, Col, Card } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -53,7 +54,12 @@ const validate = () => {
   }
   
   return (
-    <Container>
+    <Container className=" justify-content-center">
+    <Row>
+      <Col lg={7} md={8} xs={12}>
+        <Card className="login text-center">
+          <Card.Header>Log in to your Studio Ghibli account</Card.Header>
+          <Card.Body>
         <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
         <Navbar.Brand> Studio Ghibli </Navbar.Brand>
       </Navbar>
@@ -76,8 +82,12 @@ const validate = () => {
       </Button>
       <Container>Need an account?</Container>
       <Button onClick={() => { window.location.href = '/register' }}
-       variant="secondary" type="button">Register</Button>
-        </Container>
+       variant="outline-success" type="button">Register</Button>
+            </Card.Body>
+           </Card>
+          </Col>
+        </Row>
+      </Container>
   )
 }
 

@@ -1,10 +1,9 @@
 
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
-import { Form, Button, Container, Row, Col, Card, Stack } from 'react-bootstrap/';
+
+import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap/';
 
 import './profile-view.scss';
 
@@ -27,7 +26,7 @@ export class ProfileView extends React.Component {
 
   onRemoveFavorite = (e, movie) => {
     const username = localStorage.getItem('user');
-    consaole.log(username);
+    console.log(username);
     const token = localStorage.getItem('token');
     console.log(this.props);
     axios.delete(`https://studioghiblidb.herokuapp.com/users/${Username}/movies/%{movie._id}`,
@@ -35,7 +34,7 @@ export class ProfileView extends React.Component {
     )
     .then((response) => {
       console.log(response);
-      alert('Movie has been removed from Favorites.');
+      alert('${movie.Title} has been removed from Favorites.');
       this.componentDidMount();
     })
     .catch(function (error) {
@@ -133,7 +132,7 @@ setUsername(value) {
   this.Username = value;
 }
 
-setPaswsword(value) {
+setPassword(value) {
   this.setState ({
     Password: value,
   });
@@ -159,7 +158,7 @@ render() {
   const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
   return (
-    <div className="profile-view">
+    <Container className="profile-view">
       <Row>
         <Col>
           <Card className="user-profile">
@@ -190,8 +189,7 @@ render() {
                 <Form
                   className="update-form"
                   onSubmit={(e) =>
-                    this.editUser(
-                      e,
+                    this.editUser(e,
                       this.Username,
                       this.Password,
                       this.Email,
@@ -263,6 +261,9 @@ render() {
         <Col>
           <Container className="user-favorites">
             <Card>
+            <Card.Header className="user-favorites-header">
+                <h2>My Favorite Movies</h2>
+              </Card.Header>
               <Card.Body>
                 {FavoriteMovies.length === 0 && (
                   <div className="text-center">No Favorite Movies</div>
@@ -293,14 +294,10 @@ render() {
                                 variant="danger"
                                 value={movie._id}
                                 onClick={(e) =>
-                                  this.onRemoveFavorite(e, movie)
-                                }
-                              >
-                                Remove
-                              </Button>
+                                  this.onRemoveFavorite(e, movie)}>Remove</Button>
                             </Card.Body>
                           </Card>
-                        );
+                        )
                       }
                     })}
                 </Row>
@@ -309,7 +306,7 @@ render() {
           </Container>
         </Col>
       </Row>
-    </div>
-  );
+    </Container>
+  )
 }
 }
