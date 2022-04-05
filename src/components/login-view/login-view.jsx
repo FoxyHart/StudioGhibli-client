@@ -10,7 +10,7 @@ import './login-view.scss';
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  // Declare hook for each input
+ /* // Declare hook for each input
   const [ usernameErr, setUsernameErr ] = useState('');
   const [ passwordErr, setPasswordErr ] = useState('');
 
@@ -33,11 +33,11 @@ const validate = () => {
   }
 
   return isReq;
-}
+}*/
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    const isReq = validate();
-  if(isReq) {
+   /* const isReq = validate();
+  if(isReq) { 
     /* Send a request to the server for authentication */
     axios.post('https://studioghiblidb.herokuapp.com/login', {
       Username: username,
@@ -51,14 +51,14 @@ const validate = () => {
       console.log('User not found')
     })
   }
-  }
+  
   
   return (
-    <Container className=" justify-content-center">
+    <Container>
     <Row>
       <Col lg={7} md={8} xs={12}>
         <Card className="login text-center">
-          <Card.Header>Log in to your Studio Ghibli account</Card.Header>
+          <Card.Header>Log in to your own Studio Ghibli account</Card.Header>
           <Card.Body>
         <Navbar expand="xxlg" bg="dark" variant="dark" className= "justify-content-md-center">
         <Navbar.Brand> Studio Ghibli </Navbar.Brand>
@@ -68,13 +68,13 @@ const validate = () => {
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" placeholder="Please enter your username" value={username} onChange={(e) => setUsername(e.target.value)} />
         {/* code added here to display validation error */}
-        {usernameErr && <p>{usernameErr}</p>}
+        {/*usernameErr && <p>{usernameErr}</p>*/}
       </Form.Group>
 
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" placeholder="Please enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        {passwordErr && <p>{passwordErr}</p>}
+        {/*passwordErr && <p>{passwordErr}</p>*/}
       </Form.Group>
       </Form>
       <Button variant="success" type="submit" onClick={handleSubmit}>

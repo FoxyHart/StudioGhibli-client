@@ -75,12 +75,6 @@ export class MainView extends React.Component {
     window.open('/', '_self');
   }
 
-  onRegistration(registration) {
-    this.setState({
-      registration,
-    });
-  }
-
 setSelectedMovie(newSelectedMovie) {
   this.setState({
     selectedMovie: newSelectedMovie
@@ -157,24 +151,28 @@ renderUser = ({ user, movies }) => {
 }
 
 renderRegister = ({ user }) => {
-          if (!user) return <Redirect to="/" />;
+          if (user) return <Redirect to="/" />;
           return( 
+            <Col xs={12} md={8}>
             <RegistrationView />
+            </Col>
           )};
 
   render() {
     const { movies, user } = this.state;
 
-    if (!user) return <Row> 
+   /* if (!user) return <Row> 
       <Col>
       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
       </Col>
     </Row>
-   
+   */
    
     return (
     <Router>
       <NavbarView />
+      <Container>
+      <Row className="main-view justify-content-md-center">
       <Routes> 
         {/* welcome */}
         <Route exact path="/" element={<this.rendermovies user={user} movies={movies} />} />
@@ -183,7 +181,7 @@ renderRegister = ({ user }) => {
         <Route path="/login" element={<LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />} />
         
         {/* registration view*/}
-        <Route exact path="/register" element={<this.renderRegister user={user} />} />
+        <Route  path="/register" element={<this.renderRegister />} />
 
         {/* For movie cards */}
         <Route path="/movies/:movieId" element={<this.renderMovie movies={movies} user={user} />} />
@@ -196,7 +194,9 @@ renderRegister = ({ user }) => {
 
         {/*user profile view*/}
         <Route exact path="/users/:Username" element={<this.renderUser movies={movies} user={user} /> } />
-    </Routes>  
+    </Routes> 
+    </Row> 
+    </Container>
     </Router>  
     )
    }

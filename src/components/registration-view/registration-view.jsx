@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Container, Button, Row, Col} from 'react-bootstrap';
+import { Form, Container, Button, Row, Col, Card} from 'react-bootstrap';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import './registration-view.scss'
 
@@ -37,7 +38,7 @@ return (
     <Card>
       <Card.Body>
         <Card.Title className="register-title">
-          Sign up for your Studio Ghibli account:
+          Sign up for your own Studio Ghibli account:
         </Card.Title>
    <Form>
      <Form.Group>
@@ -58,6 +59,12 @@ return (
       </Form.Group>
       <Button variant="success" type="submit" onClick={handleSubmit}>Register</Button>
     </Form>
+    <Card.Footer>
+        Already have an account?{'    '}
+        <Link to={`/`}>
+          <Button variant="link">Login!</Button>
+        </Link>
+      </Card.Footer>
     </Card.Body>
     </Card>
     </Col>
