@@ -164,18 +164,12 @@ render() {
           <Card className="user-profile">
             <Card.Header>User Profile</Card.Header>
             <Card.Body>
-              <Card.Text>
-                <span className="label">Username:</span>
-                <span className="value">{Username}</span>
-              </Card.Text>
-              <Card.Text>
-                <span className="label">Email:</span>
-                <span className="value">{Email}</span>
-              </Card.Text>
-              <Card.Text>
-                <span className="label">Birthday:</span>
-                <span className="value">{Birthday}</span>
-              </Card.Text>
+                <p className="label">Username:</p>
+                <p className="value">{Username}</p>
+                <p className="label">Email:</p>
+                <p className="value">{Email}</p>
+                <p className="label">Birthday:</p>
+                <p className="value">{Birthday}</p>
             </Card.Body>
           </Card>
         </Col>
@@ -185,16 +179,10 @@ render() {
           <Card>
             <Card.Header>Update Profile</Card.Header>
             <Card.Body>
-              <Card.Text>
                 <Form
                   className="update-form"
                   onSubmit={(e) =>
-                    this.editUser(e,
-                      this.Username,
-                      this.Password,
-                      this.Email,
-                      this.Birthday
-                    )
+                    this.editUser(e)
                   }
                 >
                   <Form.Group>
@@ -252,7 +240,6 @@ render() {
                     </Button>
                   </Form.Group>
                 </Form>
-              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -266,7 +253,7 @@ render() {
               </Card.Header>
               <Card.Body>
                 {FavoriteMovies.length === 0 && (
-                  <div className="text-center">No Favorite Movies</div>
+                  <Container className="text-center">No Favorite Movies</Container>
                 )}
                 <Row className="favorite-container">
                   {FavoriteMovies.length > 0 &&

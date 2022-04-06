@@ -161,13 +161,6 @@ renderRegister = ({ user }) => {
   render() {
     const { movies, user } = this.state;
 
-   /* if (!user) return <Row> 
-      <Col>
-      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-      </Col>
-    </Row>
-   */
-   
     return (
     <Router>
       <NavbarView />
@@ -181,7 +174,7 @@ renderRegister = ({ user }) => {
         <Route path="/login" element={<LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />} />
         
         {/* registration view*/}
-        <Route  path="/register" element={<this.renderRegister />} />
+        <Route  path="/register" element={<this.renderRegister user={user} />} />
 
         {/* For movie cards */}
         <Route path="/movies/:movieId" element={<this.renderMovie movies={movies} user={user} />} />

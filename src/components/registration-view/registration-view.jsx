@@ -12,8 +12,43 @@ export function RegistrationView(props) {
   const [ Email, setEmail] = useState('');
   const [ Birthday, setBirthday] = useState('');
 
+   
+ // Declare hook for each input
+ const [ usernameErr, setUsernameErr ] = useState('');
+ const [ passwordErr, setPasswordErr ] = useState('');
+ const [ emailErr, setEmailErr ] = useState('');
+
+ // validate user inputs
+ const validate = () => {
+  let isReq = true;
+  if(!Username){
+      setUsernameErr('Username required');
+      isReq = false;
+  }else if(Username.length < 2){
+      setUsernameErr('Username must be at least 2 characters long');
+      isReq = false;
+  }
+  if(!Password){
+      setPasswordErr('Password required');
+      isReq = false;
+  }else if(Password.length < 6){
+      setPassword('Password must be at least 6 characters long');
+      isReq = false;
+  }
+  if(!Email){
+      setEmailErr('Email required');
+      isReq = false;
+  }else if(Email.indexOf('@') === -1){
+      setEmail('Email must be valid');
+      isReq = false;
+  }
+  return isReq;
+}
+
   const handleSubmit = (e) => {
     e.preventDefault();
+     const isReq = validate();
+    if(isReq) { 
       axios.post(`https://studioghiblidb.herokuapp.com/users`, {
       Username: Username,
       Password: Password,
@@ -29,7 +64,7 @@ export function RegistrationView(props) {
     .catch(function (error) {
       console.log('error registering');
     });
-
+};
 }
 return (
   <Container className=" justify-content-center">
@@ -77,7 +112,7 @@ RegistrationView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired
+    Birthday: PropTypes.string
   }),
   onRegistration: PropTypes.func,
 }
