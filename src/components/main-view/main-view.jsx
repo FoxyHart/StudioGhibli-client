@@ -1,9 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 
+//#0
+import { setMovies } from '../../actions/actions';
 
+import MoviesList from '../movie-list/movie-list'
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -18,15 +22,17 @@ import {Row, Col, Container, Button, Image, Navbar} from 'react-bootstrap/';
 
 import './main-view.scss'
 
-export class MainView extends React.Component {
+// #2 export removed from here
+class MainView extends React.Component {
 
   constructor() {
     super();
+    //#3 movies state removed from here
     this.state = {
-      movies: [],
+      /*movies: [],
       selectedMovie: null,
       Description: null,
-      Movies: null,
+      Movies: null,*/
       user: null
     };
   }
@@ -46,10 +52,8 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
+      // #4
+      this.props.setMovies(response.data);
     })
     .catch((err) => {
       console.log(err);
@@ -157,9 +161,10 @@ renderRegister = ({ user }) => {
             <RegistrationView />
             </Col>
           )};
-
+//#5 movies is extracted from this.props rather than from the this.state
   render() {
-    const { movies, user } = this.state;
+    let { movies } = this.props;
+    let { user } = this.state;
 
     return (
     <Router>
@@ -195,4 +200,10 @@ renderRegister = ({ user }) => {
    }
   } 
 
-export default MainView;
+// #7
+let mapStateToProps = state => {
+  return { movies: state.movies, user: state.user }
+}
+
+//#8
+export default connect(mapStateToProps, { setMovies }) (MainView);
