@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 //#0
 import { setMovies } from '../../actions/actions';
@@ -155,7 +155,7 @@ renderUser = ({ user, movies }) => {
 }
 
 renderRegister = ({ user }) => {
-          if (user) return <Redirect to="/" />;
+          if (user) return <Navigate to="/" />;
           return( 
             <Col xs={12} md={8}>
             <RegistrationView />
