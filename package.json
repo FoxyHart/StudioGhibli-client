@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/FoxyHart/StudioGhibli-client#readme",
   "dependencies": {
+    "@parcel/reporter-dev-server": "^2.4.1",
     "axios": "^0.26.0",
     "cors": "^2.8.5",
     "parcel": "^2.4.1",
