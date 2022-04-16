@@ -1,4 +1,5 @@
 # StudioGhibli-client
+![StudioGhibli](https://user-images.githubusercontent.com/88792549/163686387-08edb1e8-b516-42cc-942b-cbdc241e2269.png)
 
  This is a single page responsive application that is the client side part of the Studio Ghibli REST API. The frontend for this includes:
   Login view
@@ -17,4 +18,4 @@
     Built utilizing Parcel
     MERN (MongoDB, Express, React, Node.js) stack
   
-  Here is a [link] to see a live site(https://mystudioghibliapplication.netlify.app/)
+  Here is the live site https://mystudioghibliapplication.netlify.app/ 
