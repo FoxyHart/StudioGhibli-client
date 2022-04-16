@@ -14,7 +14,7 @@ const onLoggedOut = () => {
 };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="xxlg" 
+    <Navbar 
         className="justify-content-lg-center">
           <Container>
         <Link to={`/`}>

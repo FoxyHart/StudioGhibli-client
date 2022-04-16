@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 //#0
 import { setMovies } from '../../actions/actions';
@@ -170,7 +170,7 @@ renderRegister = ({ user }) => {
     <Router>
       <NavbarView />
       <Container>
-      <Row className="main-view justify-content-md-center">
+      <Row className="main-view justify-content-center">
       <Routes> 
         {/* welcome */}
         <Route exact path="/" element={<this.rendermovies user={user} movies={movies} />} />

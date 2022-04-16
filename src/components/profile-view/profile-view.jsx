@@ -162,13 +162,13 @@ render() {
       <Row>
         <Col>
           <Card className="user-profile">
-            <Card.Header>User Profile</Card.Header>
+            <Card.Header><h3>User Profile</h3></Card.Header>
             <Card.Body>
-                <p className="label">Username:</p>
+                <h4 className="label">Username: </h4>
                 <p className="value">{Username}</p>
-                <p className="label">Email:</p>
+                <h4 className="label">Email:</h4>
                 <p className="value">{Email}</p>
-                <p className="label">Birthday:</p>
+                <h4 className="label">Birthday:</h4>
                 <p className="value">{Birthday}</p>
             </Card.Body>
           </Card>
@@ -177,7 +177,7 @@ render() {
       <Row>
         <Col>
           <Card>
-            <Card.Header>Update Profile</Card.Header>
+            <Card.Header><h3>Update Profile</h3></Card.Header>
             <Card.Body>
                 <Form
                   className="update-form"
@@ -246,7 +246,7 @@ render() {
       </Row>
       <Row>
         <Col>
-          <Container className="user-favorites">
+          <Container className="user-favorites justify-content-center">
             <Card>
             <Card.Header className="user-favorites-header">
                 <h2>My Favorite Movies</h2>
@@ -255,7 +255,7 @@ render() {
                 {FavoriteMovies.length === 0 && (
                   <Container className="text-center">No Favorite Movies</Container>
                 )}
-                <Row className="favorite-container">
+                <Row className="favorite-container justify-content-center">
                   {FavoriteMovies.length > 0 &&
                     movies.map((movie) => {
                       if (
@@ -268,7 +268,7 @@ render() {
                             key={movie._id}
                           >
                             <Card.Img
-                              className="fav-poster"
+                              className="fav-poster justify-content-center"
                               variant="top"
                               src={movie.ImagePath}
                             />

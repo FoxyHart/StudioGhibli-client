@@ -5,20 +5,23 @@ import Card from 'react-bootstrap/Card';
 
 import { Link } from "react-router-dom";
 
+
+
 export class MovieCard extends React.Component {
 render () {
   const { movie } = this.props;
 
   return (
-    <Card className="bg-secondary text-white">
-      <Card.Img variant="top" src={movie.ImagePath} />
-      <Card.Body>
+    <Card className="main-view-card">
+        <Card.Header>
         <Card.Title>{movie.Title}</Card.Title>
-        <Card.Text>{movie.Description}</Card.Text>
+        </Card.Header>
+      <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Footer>
         <Link to={`/movies/${movie._id}`}>
-        <Button variant="link">Learn more</Button>
+        <Button className="btn_learn">Learn more</Button>
         </Link>
-      </Card.Body>
+        </Card.Footer>
     </Card>
   )
 }

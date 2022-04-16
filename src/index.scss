@@ -1,5 +1,16 @@
-$color: rgb(23, 92, 23);
-
-.my-flix {
-  color: $color;
+$main: #382933;
+$header: rgb(59, 82, 73);
+$title:rgb(81, 152, 114);
+$highlight: rgb(164, 180, 148);
+* {
+  font-family: 'Playfair Display', serif;
+}
+.container-fluid {
+  padding: 0px;
+}
+html {
+  background-color: $header;
+}
+.container{ 
+  background-color: $header;
 }

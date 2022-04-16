@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import "../movie-view/movie-view.scss"
+import "./movie-view.scss"
 
 import { Card, Col, Container, Row, Button} from "react-bootstrap";
 
@@ -37,27 +37,23 @@ export class MovieView extends React.Component {
     const { movie } = this.props;
     return (
       <Container>
-        <Row>
+        <Row equal> 
           <Col>
             <Card className="movie-view">
               <Card.Body>
               <Card.Img className="movie-poster" src={movie.ImagePath} />
               <Card.Title className="movie-title">{movie.Title}</Card.Title>
               <Card.Text className="movie-description">{movie.Description}</Card.Text> 
-              <Card.Text className="movie-director"> Director: {movie.Director.Name}</Card.Text>
-              <Card.Text className="movie-genre"> Genre: {movie.Genre.Name}</Card.Text>
-              </Card.Body>
-            </Card> 
-             <Link to={`/directors/${movie.Director.Name}`}>
-               <Button variant="link">Director</Button>
-             </Link>
-             <Link to={`/genre/${movie.Genre.Name}`}>
-                <Button variant="link">Genre</Button>
-             </Link>
-             <Button onClick={() => {  window.location.replace("/") }}>Return to Movies</Button>
-             <Button variant="outline-primary" className="btn-outline-primary" value={movie._id}
+              <Card.Text className="movie-director"> Director: <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link></Card.Text>
+              <Card.Text className="movie-genre"> Genre: <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link></Card.Text>
+              </Card.Body>  
+              <Card.Footer>
+             <Button className="btn_fav" value={movie._id}
                 onClick={(e) => this.addFavoriteMovie(e, movie)}>
                 Add to Favorites </Button>
+             <Button className="btn_return" onClick={() => {  window.location.replace("/") }}>Return to Movies</Button>
+             </Card.Footer>
+             </Card> 
           </Col>
         </Row>
       </Container>

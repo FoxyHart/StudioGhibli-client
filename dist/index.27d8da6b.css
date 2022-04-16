@@ -5,7 +5,114 @@
 
 
 
-.my-flix {
-  color: #175c17;
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  color: #382933;
 }
+
+a {
+  text-decoration: underline;
+  color: #a4b494 !important;
+}
+
+body {
+  font-family: Playfair Display, serif;
+  color: #382933 !important;
+  background-color: #3b5249 !important;
+}
+
+.img {
+  height: 100%;
+  justify-content: center;
+  width: 90% !important;
+}
+
+.card {
+  background-color: #519872 !important;
+  border-radius: 10% !important;
+}
+
+.main-view-card {
+  height: 375px;
+  border: none;
+  margin: 3px 3px 10px;
+}
+
+.card-header {
+  color: #fff;
+  height: 60px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  padding: 1em;
+  display: flex;
+  background-color: #0000 !important;
+  border-bottom: none !important;
+  border-radius: 20% !important;
+}
+
+.card-footer {
+  text-align: center;
+  height: 40px;
+  border: none;
+  background-color: #0000 !important;
+  border-top: none !important;
+  border-radius: 20% !important;
+}
+
+.card-body {
+  border-radius: 20% !important;
+}
+
+.button-group {
+  justify-content: center;
+  margin-top: 1rem;
+  display: flex;
+}
+
+.navbar-brand {
+  color: #382933 !important;
+}
+
+.btn_return {
+  color: #a4b494 !important;
+  background-color: #3b5249 !important;
+  border-color: #519872 !important;
+}
+
+.btn_learn {
+  color: #3b5249 !important;
+  background-color: #519872 !important;
+  border-color: #519872 !important;
+}
+
+.btn_fav {
+  color: #a4b494 !important;
+  background-color: #3b5249 !important;
+  border-color: #519872 !important;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 64%;
+}
+
+* {
+  font-family: Playfair Display, serif;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+html, .container {
+  background-color: #3b5249;
+}
+
 /*# sourceMappingURL=index.27d8da6b.css.map */

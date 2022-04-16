@@ -1,0 +1,42 @@
+$main: #382933;
+$header: rgb(59, 82, 73);
+$title:rgb(81, 152, 114);
+$highlight: rgb(164, 180, 148);
+
+.card {
+  background-color: $main!important;
+  color: white!important;
+  max-height: 200px;
+  margin-bottom: 1rem;
+  border-radius: 40%;
+}
+.movie-view {
+  background-color: $header!important;
+}
+.card-header {
+  padding: 2em;
+  margin-top: 1em;
+  background-color: $title!important;
+  color: white!important;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 20px;
+}
+.card-footer {
+  background-color: $title!important;
+  text-align: center;
+  border: 1rem;
+  max-height: 10px;
+}
+.img {
+  width: fit-content;
+  height:fit-content
+}
+
+
+
+
+
+
