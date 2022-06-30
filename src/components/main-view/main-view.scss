@@ -1,0 +1,93 @@
+$main: #382933;
+$header: rgb(59, 82, 73);
+$title:rgb(81, 152, 114);
+$highlight: rgb(164, 180, 148);
+
+*{
+  box-sizing: border-box;
+  color: $main;
+}
+a {
+  color:$highlight!important;
+  text-decoration: underline;
+}
+body {
+  background-color: $header!important;
+  color: $main!important;
+  font-family:'Playfair Display', serif;
+  
+}
+
+.img {
+  width: 90%!important;
+  height: 100%;
+  justify-content: center;
+}
+
+.card {
+  background-color: $title!important;
+  border-radius: 10%!important;
+}
+
+.main-view-card {
+
+height: 375px;
+border: 3rem;
+margin: 3px;
+margin-bottom: 10px;
+}
+.card-header {
+  border-radius: 20%!important;
+  padding: 1em;
+  margin-top: 1em;
+  background-color: transparent!important;
+  color: white;
+  border: none;
+  border-bottom: none!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+.card-footer {
+  border-radius: 20%!important;
+  background-color: transparent!important;
+  border-top: none!important;
+  text-align: center;
+  border: 2rem;
+  height: 40px;
+}
+
+.card-body {
+  border-radius: 20%!important;
+ }
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.navbar-brand {
+  color:$main!important;
+}
+
+.btn_return {
+  background-color: $header!important;
+  border-color: $title!important;
+  color:$highlight!important;
+}
+
+.btn_learn {
+  background-color: $title!important;
+  border-color: $title!important;
+  color:$header!important;
+}
+
+.btn_fav {
+  background-color: $header!important;
+  border-color: $title!important;
+  color:$highlight!important;
+}
+.card-img-top {
+  width: 100%;
+  height: 64%;
+}
