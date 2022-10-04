@@ -16,6 +16,5 @@
     React, React-Redux
     Styled with React Bootstrap
     Built utilizing Parcel
-    MERN (MongoDB, Express, React, Node.js) stack
   
   Here is the live site https://mystudioghibliapplication.netlify.app/ 
